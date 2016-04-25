@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C58303256F5A724422C7311E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E4DEB2050D05248DC29BAE /* libPods.a */; };
 		D6C2588A1CBFF30E00D4A58E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C258891CBFF30E00D4A58E /* main.m */; };
 		D6C2588D1CBFF30E00D4A58E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */; };
 		D6C258901CBFF30E00D4A58E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2588F1CBFF30E00D4A58E /* ViewController.m */; };
@@ -14,9 +15,12 @@
 		D6C258951CBFF30E00D4A58E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6C258941CBFF30E00D4A58E /* Assets.xcassets */; };
 		D6C258981CBFF30E00D4A58E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C258961CBFF30E00D4A58E /* LaunchScreen.storyboard */; };
 		D6C258A01CC0026E00D4A58E /* BSCard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6C2589F1CC0026E00D4A58E /* BSCard.jpg */; };
+		D6EBE3671CC96B1200729877 /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = D6EBE3661CC96B1200729877 /* Account.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		45E762039855CC3D6DC22B3F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D0E4DEB2050D05248DC29BAE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C258851CBFF30E00D4A58E /* cardme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C258891CBFF30E00D4A58E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6C2588B1CBFF30E00D4A58E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,6 +32,9 @@
 		D6C258971CBFF30E00D4A58E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6C258991CBFF30E00D4A58E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6C2589F1CC0026E00D4A58E /* BSCard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = BSCard.jpg; sourceTree = "<group>"; };
+		D6EBE3651CC96A4D00729877 /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		D6EBE3661CC96B1200729877 /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		DA895772BB27C5C614724935 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +42,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58303256F5A724422C7311E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9353E8A6475AE8A9A38EDF34 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				45E762039855CC3D6DC22B3F /* Pods.debug.xcconfig */,
+				DA895772BB27C5C614724935 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B1D422329D3BF2E6B37D764E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0E4DEB2050D05248DC29BAE /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D6C2587C1CBFF30E00D4A58E = {
 			isa = PBXGroup;
 			children = (
 				D6C258871CBFF30E00D4A58E /* cardme */,
 				D6C258861CBFF30E00D4A58E /* Products */,
+				9353E8A6475AE8A9A38EDF34 /* Pods */,
+				B1D422329D3BF2E6B37D764E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +91,8 @@
 				D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */,
 				D6C2588E1CBFF30E00D4A58E /* ViewController.h */,
 				D6C2588F1CBFF30E00D4A58E /* ViewController.m */,
+				D6EBE3651CC96A4D00729877 /* Account.h */,
+				D6EBE3661CC96B1200729877 /* Account.m */,
 				D6C258911CBFF30E00D4A58E /* Main.storyboard */,
 				D6C258941CBFF30E00D4A58E /* Assets.xcassets */,
 				D6C258961CBFF30E00D4A58E /* LaunchScreen.storyboard */,
@@ -89,9 +118,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6C2589C1CBFF30E00D4A58E /* Build configuration list for PBXNativeTarget "cardme" */;
 			buildPhases = (
+				71AEB0BFEAA245E0A5920886 /* Check Pods Manifest.lock */,
 				D6C258811CBFF30E00D4A58E /* Sources */,
 				D6C258821CBFF30E00D4A58E /* Frameworks */,
 				D6C258831CBFF30E00D4A58E /* Resources */,
+				80185BF393E9A3EC53A5F4BC /* Embed Pods Frameworks */,
+				4A4C33DFB7E00D9523F3751D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,12 +180,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4A4C33DFB7E00D9523F3751D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71AEB0BFEAA245E0A5920886 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		80185BF393E9A3EC53A5F4BC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D6C258811CBFF30E00D4A58E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D6C258901CBFF30E00D4A58E /* ViewController.m in Sources */,
+				D6EBE3671CC96B1200729877 /* Account.m in Sources */,
 				D6C2588D1CBFF30E00D4A58E /* AppDelegate.m in Sources */,
 				D6C2588A1CBFF30E00D4A58E /* main.m in Sources */,
 			);
@@ -263,6 +344,7 @@
 		};
 		D6C2589D1CBFF30E00D4A58E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45E762039855CC3D6DC22B3F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = cardme/Info.plist;
@@ -274,6 +356,7 @@
 		};
 		D6C2589E1CBFF30E00D4A58E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA895772BB27C5C614724935 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = cardme/Info.plist;
@@ -302,6 +385,7 @@
 				D6C2589E1CBFF30E00D4A58E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
