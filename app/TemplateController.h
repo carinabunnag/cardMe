@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+//static int *tag;
+
 @interface TemplateController : UIViewController
 - (IBAction)textFieldDoneEditing:(id)sender;
 
