@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3908CED66315EE2BD99AE4DBDEA61E1F83AC67F9+++591179E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3908CED66315EE2BD99AE4DBDEA61E1F83AC67F9+++D7A31BA" : 0,
+    "3908CED66315EE2BD99AE4DBDEA61E1F83AC67F9+++591179E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6F382FB0-4723-4DBC-B2B0-430CA44F08FF",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3908CED66315EE2BD99AE4DBDEA61E1F83AC67F9+++D7A31BA" : "",
+    "3908CED66315EE2BD99AE4DBDEA61E1F83AC67F9+++591179E" : "cardMe"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "cardme",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "app\/cardme.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/carinabunnag\/cardMe.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3908CED66315EE2BD99AE4DBDEA61E1F83AC67F9+++591179E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/carinabunnag\/cardMe.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3908CED66315EE2BD99AE4DBDEA61E1F83AC67F9+++D7A31BA"
+    }
+  ]
+}

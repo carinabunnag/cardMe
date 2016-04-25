@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921D25661CC81F4E00F988EC /* TemplateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D25651CC81F4E00F988EC /* TemplateController.m */; };
+		9269721E1CC816E000306483 /* Templates.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9269721D1CC816E000306483 /* Templates.storyboard */; };
+		92CB33031CCEA5FA004CE971 /* Standard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92CB33021CCEA5FA004CE971 /* Standard.jpg */; };
 		D6C2588A1CBFF30E00D4A58E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C258891CBFF30E00D4A58E /* main.m */; };
 		D6C2588D1CBFF30E00D4A58E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */; };
 		D6C258901CBFF30E00D4A58E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2588F1CBFF30E00D4A58E /* ViewController.m */; };
@@ -17,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		921D25641CC81F4E00F988EC /* TemplateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemplateController.h; path = ../TemplateController.h; sourceTree = "<group>"; };
+		921D25651CC81F4E00F988EC /* TemplateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemplateController.m; path = ../TemplateController.m; sourceTree = "<group>"; };
+		9269721D1CC816E000306483 /* Templates.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Templates.storyboard; sourceTree = "<group>"; };
+		92CB33021CCEA5FA004CE971 /* Standard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Standard.jpg; sourceTree = "<group>"; };
 		D6C258851CBFF30E00D4A58E /* cardme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C258891CBFF30E00D4A58E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6C2588B1CBFF30E00D4A58E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -60,6 +67,9 @@
 		D6C258871CBFF30E00D4A58E /* cardme */ = {
 			isa = PBXGroup;
 			children = (
+				921D25641CC81F4E00F988EC /* TemplateController.h */,
+				921D25651CC81F4E00F988EC /* TemplateController.m */,
+				9269721D1CC816E000306483 /* Templates.storyboard */,
 				D6C2588B1CBFF30E00D4A58E /* AppDelegate.h */,
 				D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */,
 				D6C2588E1CBFF30E00D4A58E /* ViewController.h */,
@@ -76,6 +86,7 @@
 		D6C258881CBFF30E00D4A58E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				92CB33021CCEA5FA004CE971 /* Standard.jpg */,
 				D6C2589F1CC0026E00D4A58E /* BSCard.jpg */,
 				D6C258891CBFF30E00D4A58E /* main.m */,
 			);
@@ -139,10 +150,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92CB33031CCEA5FA004CE971 /* Standard.jpg in Resources */,
 				D6C258A01CC0026E00D4A58E /* BSCard.jpg in Resources */,
 				D6C258981CBFF30E00D4A58E /* LaunchScreen.storyboard in Resources */,
 				D6C258951CBFF30E00D4A58E /* Assets.xcassets in Resources */,
 				D6C258931CBFF30E00D4A58E /* Main.storyboard in Resources */,
+				9269721E1CC816E000306483 /* Templates.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +169,7 @@
 				D6C258901CBFF30E00D4A58E /* ViewController.m in Sources */,
 				D6C2588D1CBFF30E00D4A58E /* AppDelegate.m in Sources */,
 				D6C2588A1CBFF30E00D4A58E /* main.m in Sources */,
+				921D25661CC81F4E00F988EC /* TemplateController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +280,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = cardme/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyu.edu.cardme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -277,6 +292,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = cardme/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyu.edu.cardme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -302,6 +318,7 @@
 				D6C2589E1CBFF30E00D4A58E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
