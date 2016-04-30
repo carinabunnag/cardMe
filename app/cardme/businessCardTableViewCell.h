@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Card.h"
+
+//ANY REASON TO HAVE DELEGATE FOR THESE CELLS????
 
 @interface businessCardTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *image;
@@ -15,5 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *telephone;
 @property (weak, nonatomic) IBOutlet UILabel *company;
 @property (weak, nonatomic) IBOutlet UILabel *position;
+@property (strong, nonatomic) IBOutlet UIView *littleview;
+
+@property (weak, nonatomic) Card* cellData;
 
 @end

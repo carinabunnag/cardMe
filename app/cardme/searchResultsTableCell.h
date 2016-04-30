@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface searchResultsTableCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *lastname;
 @property (weak, nonatomic) IBOutlet UILabel *firstname;
-
+@property (weak, nonatomic) IBOutlet UILabel *shared;
+@property (weak, nonatomic) NSString* userID;
 @end

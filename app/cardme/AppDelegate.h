@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import <Firebase/Firebase.h>
+#import "Card.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
@@ -20,23 +21,32 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) Firebase *firebaseRootRef;
 @property (strong, nonatomic) Firebase *firebaseUserRef;
-@property (strong, nonatomic) NSString* myUsername;
+@property (strong, nonatomic) Card* myCard;
+@property (strong, nonatomic) NSString* today;
+@property (strong, nonatomic) NSNumber* cardct;
 
 
 - (void)saveContext;
 - (NSURL*)applicationDocumentsDirectory;
 - (Firebase *)getFirebaseRootRef;
 - (Firebase *)getFirebaseUserRefForUser: (NSString*) username;
-//searching for person and getting their username
-- (FQuery *)queryFirebaseUsernameForPerson: (NSString*) lastname;
-//after getting username, share card with that user
-- (BOOL) shareCard: (id) businessCard
-          WithUser: (NSString*) username;
+- (void) signOut;
 
-- (BOOL) addNewUser : (NSString*) username
-           withEmail : (NSString*) email
-       withPassword : (NSString*) password;
+//searching for person and getting their username
+//- (FQuery *)queryFirebaseUsernameForPerson: (NSString*) lastname;
+//after getting username, share card with that user
+- (BOOL) shareCard: (Card*) businessCard
+          WithUser: (NSString*) userID;
+- (void) deleteCardFromCoreData : (Card*) message;
+
 - (BOOL) readInMessagesFromFirebase;
+
+- (void) readMyCardFromCoreData;
+- (void) readMyCardFromCoreDataWithUsername: (NSString*) username;
+
+- (NSNumber*) retrieveCardCt;
+- (NSString*) getToday;
+- (Card*) getMyCard;
 
 @end
 
