@@ -112,7 +112,7 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 //swipeable message cell protocol methods
 - (void) yesButtonActionForMessage: (Card*) message{
     NSLog(@"Yes button action from delegate\n");
-    
+    lastmsgct--;
     NSString* alertMessage;
     if ([message.cardType integerValue] == MESSAGE_CARD) {        //card, just change card type
         message.cardType = [NSNumber numberWithInt:BUSINESS_CARD];
@@ -147,7 +147,7 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
     UIAlertAction* yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"alert action yes selected\n");
         NSLog(@"in message box vc: message null : %d\n", (message == NULL));
-
+        lastmsgct--;
         [self.appdelegate deleteCardFromCoreData:message];
         [self.appdelegate saveContext];
         
