@@ -6,12 +6,12 @@
 //  Copyright (c) 2016 nyu.edu. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "AppDelegate.h"
 
 //static int *tag;
 
 @interface TemplateController : UIViewController
 - (IBAction)textFieldDoneEditing:(id)sender;
-
 
 @end

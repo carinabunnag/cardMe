@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 
 @interface HomeViewController ()
-
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 @end
 
 @implementation HomeViewController
@@ -46,5 +46,9 @@
 
 - (IBAction)signout:(id)sender {
     [self.appdelegate signOut];
+}
+
+- (IBAction)editCard:(id)sender {
+    
 }
 @end
