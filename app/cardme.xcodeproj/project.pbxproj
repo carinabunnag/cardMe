@@ -7,9 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
+		31342B831CD118F100A907EE /* MessageBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31342B821CD118F100A907EE /* MessageBoxViewController.m */; };
+		31342B891CD1288B00A907EE /* swipeableMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31342B881CD1288B00A907EE /* swipeableMessageCell.m */; };
+		313A27C51CCEAE4000E3EB90 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313A27C41CCEAE4000E3EB90 /* SignupViewController.m */; };
+		316D06C11CD2585B00CD47A6 /* Card+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06BE1CD2585B00CD47A6 /* Card+CoreDataProperties.m */; };
+		316D06C21CD2585B00CD47A6 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06C01CD2585B00CD47A6 /* Card.m */; };
+		316D06C61CD2973100CD47A6 /* BusinessCardTableViewMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06C51CD2973100CD47A6 /* BusinessCardTableViewMaster.m */; };
+		316D06CF1CD31B7900CD47A6 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06CE1CD31B7900CD47A6 /* SettingsTableViewController.m */; };
+		316D06D21CD3302400CD47A6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06D11CD3302400CD47A6 /* HomeViewController.m */; };
+		3180B7EA1CC8188800641910 /* cardme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3180B7E81CC8188800641910 /* cardme.xcdatamodeld */; };
+		318B006F1CCEBE7800781601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 318B006E1CCEBE7800781601 /* Assets.xcassets */; };
+		318B00711CCEBF9600781601 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 318B00701CCEBF9600781601 /* Launch Screen.storyboard */; };
+		31FF3C441CCFCB050044E6E0 /* UserSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FF3C431CCFCB050044E6E0 /* UserSearchTableViewController.m */; };
+		31FF3C4A1CCFE5850044E6E0 /* searchResultsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FF3C491CCFE5850044E6E0 /* searchResultsTableCell.m */; };
+		31FF3C4D1CCFE8EF0044E6E0 /* businessCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FF3C4C1CCFE8EF0044E6E0 /* businessCardTableViewCell.m */; };
+		4309933B00DC3C8B129C3727 /* libPods-cardme.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BE383A3460D650C2C27373 /* libPods-cardme.a */; };
 		921D25661CC81F4E00F988EC /* TemplateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D25651CC81F4E00F988EC /* TemplateController.m */; };
-		9269721E1CC816E000306483 /* Templates.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9269721D1CC816E000306483 /* Templates.storyboard */; };
+		9263E9521CD6AB87005D2B93 /* TemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9263E9511CD6AB87005D2B93 /* TemplateView.m */; };
 		928A984A1CD004D5009984F7 /* orange-multiDesign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928A98491CD004D5009984F7 /* orange-multiDesign.jpg */; };
 		928A984C1CD004E2009984F7 /* blue-grayDesign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928A984B1CD004E2009984F7 /* blue-grayDesign.jpg */; };
 		928A984E1CD00B7A009984F7 /* green-whiteDesign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928A984D1CD00B7A009984F7 /* green-whiteDesign.jpg */; };
@@ -20,23 +34,6 @@
 		928A98581CD00BD5009984F7 /* red-silverDesign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928A98571CD00BD5009984F7 /* red-silverDesign.jpg */; };
 		92CB33031CCEA5FA004CE971 /* Standard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92CB33021CCEA5FA004CE971 /* Standard.jpg */; };
 		92CC48501CCEDE9300305889 /* purple-pinkDesign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92CC484F1CCEDE9300305889 /* purple-pinkDesign.jpg */; };
-
-		31342B831CD118F100A907EE /* MessageBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31342B821CD118F100A907EE /* MessageBoxViewController.m */; settings = {ASSET_TAGS = (); }; };
-		31342B891CD1288B00A907EE /* swipeableMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31342B881CD1288B00A907EE /* swipeableMessageCell.m */; settings = {ASSET_TAGS = (); }; };
-		313A27C51CCEAE4000E3EB90 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313A27C41CCEAE4000E3EB90 /* SignupViewController.m */; settings = {ASSET_TAGS = (); }; };
-		316D06C11CD2585B00CD47A6 /* Card+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06BE1CD2585B00CD47A6 /* Card+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		316D06C21CD2585B00CD47A6 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06C01CD2585B00CD47A6 /* Card.m */; settings = {ASSET_TAGS = (); }; };
-		316D06C61CD2973100CD47A6 /* BusinessCardTableViewMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06C51CD2973100CD47A6 /* BusinessCardTableViewMaster.m */; settings = {ASSET_TAGS = (); }; };
-		316D06CF1CD31B7900CD47A6 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06CE1CD31B7900CD47A6 /* SettingsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		316D06D21CD3302400CD47A6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06D11CD3302400CD47A6 /* HomeViewController.m */; settings = {ASSET_TAGS = (); }; };
-		3180B7EA1CC8188800641910 /* cardme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3180B7E81CC8188800641910 /* cardme.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
-		318B006F1CCEBE7800781601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 318B006E1CCEBE7800781601 /* Assets.xcassets */; settings = {ASSET_TAGS = (); }; };
-		318B00711CCEBF9600781601 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 318B00701CCEBF9600781601 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
-		31FF3C441CCFCB050044E6E0 /* UserSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FF3C431CCFCB050044E6E0 /* UserSearchTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		31FF3C4A1CCFE5850044E6E0 /* searchResultsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FF3C491CCFE5850044E6E0 /* searchResultsTableCell.m */; settings = {ASSET_TAGS = (); }; };
-		31FF3C4D1CCFE8EF0044E6E0 /* businessCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FF3C4C1CCFE8EF0044E6E0 /* businessCardTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		4309933B00DC3C8B129C3727 /* libPods-cardme.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BE383A3460D650C2C27373 /* libPods-cardme.a */; };
-
 		D6C2588A1CBFF30E00D4A58E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C258891CBFF30E00D4A58E /* main.m */; };
 		D6C2588D1CBFF30E00D4A58E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */; };
 		D6C258901CBFF30E00D4A58E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2588F1CBFF30E00D4A58E /* LoginViewController.m */; };
@@ -45,21 +42,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-
-		921D25641CC81F4E00F988EC /* TemplateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemplateController.h; path = ../TemplateController.h; sourceTree = "<group>"; };
-		921D25651CC81F4E00F988EC /* TemplateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemplateController.m; path = ../TemplateController.m; sourceTree = "<group>"; };
-		9269721D1CC816E000306483 /* Templates.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Templates.storyboard; sourceTree = "<group>"; };
-		928A98491CD004D5009984F7 /* orange-multiDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "orange-multiDesign.jpg"; sourceTree = "<group>"; };
-		928A984B1CD004E2009984F7 /* blue-grayDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blue-grayDesign.jpg"; sourceTree = "<group>"; };
-		928A984D1CD00B7A009984F7 /* green-whiteDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "green-whiteDesign.jpg"; sourceTree = "<group>"; };
-		928A984F1CD00B96009984F7 /* black-wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "black-wood.jpg"; sourceTree = "<group>"; };
-		928A98511CD00BA7009984F7 /* blue-greenDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blue-greenDesign.jpg"; sourceTree = "<group>"; };
-		928A98531CD00BBF009984F7 /* blue-whiteDesign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-whiteDesign.png"; sourceTree = "<group>"; };
-		928A98551CD00BCA009984F7 /* goldDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = goldDesign.jpg; sourceTree = "<group>"; };
-		928A98571CD00BD5009984F7 /* red-silverDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "red-silverDesign.jpg"; sourceTree = "<group>"; };
-		92CB33021CCEA5FA004CE971 /* Standard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Standard.jpg; sourceTree = "<group>"; };
-		92CC484F1CCEDE9300305889 /* purple-pinkDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "purple-pinkDesign.jpg"; sourceTree = "<group>"; };
-
 		31342B811CD118F100A907EE /* MessageBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBoxViewController.h; sourceTree = "<group>"; };
 		31342B821CD118F100A907EE /* MessageBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBoxViewController.m; sourceTree = "<group>"; };
 		31342B871CD1288B00A907EE /* swipeableMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swipeableMessageCell.h; sourceTree = "<group>"; };
@@ -86,10 +68,23 @@
 		31FF3C491CCFE5850044E6E0 /* searchResultsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchResultsTableCell.m; sourceTree = "<group>"; };
 		31FF3C4B1CCFE8EF0044E6E0 /* businessCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = businessCardTableViewCell.h; sourceTree = "<group>"; };
 		31FF3C4C1CCFE8EF0044E6E0 /* businessCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = businessCardTableViewCell.m; sourceTree = "<group>"; };
+		921D25641CC81F4E00F988EC /* TemplateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemplateController.h; path = ../TemplateController.h; sourceTree = "<group>"; };
+		921D25651CC81F4E00F988EC /* TemplateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemplateController.m; path = ../TemplateController.m; sourceTree = "<group>"; };
+		9263E9501CD6AB87005D2B93 /* TemplateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemplateView.h; sourceTree = "<group>"; };
+		9263E9511CD6AB87005D2B93 /* TemplateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemplateView.m; sourceTree = "<group>"; };
+		928A98491CD004D5009984F7 /* orange-multiDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "orange-multiDesign.jpg"; sourceTree = "<group>"; };
+		928A984B1CD004E2009984F7 /* blue-grayDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blue-grayDesign.jpg"; sourceTree = "<group>"; };
+		928A984D1CD00B7A009984F7 /* green-whiteDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "green-whiteDesign.jpg"; sourceTree = "<group>"; };
+		928A984F1CD00B96009984F7 /* black-wood.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "black-wood.jpg"; sourceTree = "<group>"; };
+		928A98511CD00BA7009984F7 /* blue-greenDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blue-greenDesign.jpg"; sourceTree = "<group>"; };
+		928A98531CD00BBF009984F7 /* blue-whiteDesign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-whiteDesign.png"; sourceTree = "<group>"; };
+		928A98551CD00BCA009984F7 /* goldDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = goldDesign.jpg; sourceTree = "<group>"; };
+		928A98571CD00BD5009984F7 /* red-silverDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "red-silverDesign.jpg"; sourceTree = "<group>"; };
+		92CB33021CCEA5FA004CE971 /* Standard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Standard.jpg; sourceTree = "<group>"; };
+		92CC484F1CCEDE9300305889 /* purple-pinkDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "purple-pinkDesign.jpg"; sourceTree = "<group>"; };
 		9FCCA8FB7406609B7B213676 /* Pods-cardme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cardme.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cardme/Pods-cardme.debug.xcconfig"; sourceTree = "<group>"; };
 		AC546D770D1555B3F746199F /* Pods-cardme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cardme.release.xcconfig"; path = "Pods/Target Support Files/Pods-cardme/Pods-cardme.release.xcconfig"; sourceTree = "<group>"; };
 		C9BE383A3460D650C2C27373 /* libPods-cardme.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cardme.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-
 		D6C258851CBFF30E00D4A58E /* cardme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C258891CBFF30E00D4A58E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6C2588B1CBFF30E00D4A58E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -153,7 +148,6 @@
 			children = (
 				921D25641CC81F4E00F988EC /* TemplateController.h */,
 				921D25651CC81F4E00F988EC /* TemplateController.m */,
-				9269721D1CC816E000306483 /* Templates.storyboard */,
 				D6C2588B1CBFF30E00D4A58E /* AppDelegate.h */,
 				D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */,
 				316D06D01CD3302400CD47A6 /* HomeViewController.h */,
@@ -184,6 +178,8 @@
 				316D06BD1CD2585B00CD47A6 /* Card+CoreDataProperties.h */,
 				316D06BE1CD2585B00CD47A6 /* Card+CoreDataProperties.m */,
 				316D06BF1CD2585B00CD47A6 /* Card.h */,
+				9263E9501CD6AB87005D2B93 /* TemplateView.h */,
+				9263E9511CD6AB87005D2B93 /* TemplateView.m */,
 				316D06C01CD2585B00CD47A6 /* Card.m */,
 				D6C258881CBFF30E00D4A58E /* Supporting Files */,
 			);
@@ -270,22 +266,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				92CB33031CCEA5FA004CE971 /* Standard.jpg in Resources */,
 				D6C258A01CC0026E00D4A58E /* BSCard.jpg in Resources */,
-				D6C258981CBFF30E00D4A58E /* LaunchScreen.storyboard in Resources */,
 				928A98561CD00BCA009984F7 /* goldDesign.jpg in Resources */,
 				928A984C1CD004E2009984F7 /* blue-grayDesign.jpg in Resources */,
 				928A984A1CD004D5009984F7 /* orange-multiDesign.jpg in Resources */,
 				92CC48501CCEDE9300305889 /* purple-pinkDesign.jpg in Resources */,
-				D6C258951CBFF30E00D4A58E /* Assets.xcassets in Resources */,
-
 				318B006F1CCEBE7800781601 /* Assets.xcassets in Resources */,
 				D6C258A01CC0026E00D4A58E /* BSCard.jpg in Resources */,
 				318B00711CCEBF9600781601 /* Launch Screen.storyboard in Resources */,
-
 				D6C258931CBFF30E00D4A58E /* Main.storyboard in Resources */,
-				9269721E1CC816E000306483 /* Templates.storyboard in Resources */,
 				928A98501CD00B96009984F7 /* black-wood.jpg in Resources */,
 				928A984E1CD00B7A009984F7 /* green-whiteDesign.jpg in Resources */,
 				928A98521CD00BA7009984F7 /* blue-greenDesign.jpg in Resources */,
@@ -357,9 +347,7 @@
 				316D06C61CD2973100CD47A6 /* BusinessCardTableViewMaster.m in Sources */,
 				31FF3C441CCFCB050044E6E0 /* UserSearchTableViewController.m in Sources */,
 				D6C2588A1CBFF30E00D4A58E /* main.m in Sources */,
-
 				921D25661CC81F4E00F988EC /* TemplateController.m in Sources */,
-
 				316D06D21CD3302400CD47A6 /* HomeViewController.m in Sources */,
 				3180B7EA1CC8188800641910 /* cardme.xcdatamodeld in Sources */,
 				31342B891CD1288B00A907EE /* swipeableMessageCell.m in Sources */,
@@ -367,7 +355,7 @@
 				31FF3C4D1CCFE8EF0044E6E0 /* businessCardTableViewCell.m in Sources */,
 				31342B831CD118F100A907EE /* MessageBoxViewController.m in Sources */,
 				316D06C21CD2585B00CD47A6 /* Card.m in Sources */,
-
+				9263E9521CD6AB87005D2B93 /* TemplateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,11 +461,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = cardme/Info.plist;
-
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyu.edu.cardme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -493,11 +477,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = cardme/Info.plist;
-
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyu.edu.cardme;
 				PRODUCT_NAME = "$(TARGET_NAME)";

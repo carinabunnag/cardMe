@@ -7,28 +7,29 @@
 //
 
 #import "TemplateController.h"
-
+#import <QuartzCore/QuartzCore.h>
 
 @interface TemplateController()
-
+@property (weak, nonatomic) IBOutlet UIButton *template1;
+@property (weak, nonatomic) IBOutlet UIButton *template2;
+@property (weak, nonatomic) IBOutlet UIButton *template3;
+@property (weak, nonatomic) IBOutlet UIButton *template4;
+@property (weak, nonatomic) IBOutlet UIButton *template5;
 @property (weak, nonatomic) IBOutlet UITextField *companyField;
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
+@property (weak, nonatomic) IBOutlet UIButton *submit;
 @end
 
 
 @implementation TemplateController
 {
-    int tag;
-}
-
-- (void) setTag:(int) i {
-    tag = i;
-}
-
-- (int) getTag {
-    return tag;
+    int imageTag;
+    NSString *companyText;
+    NSString *nameText;
+    NSString *phoneText;
+    NSString *emailText;
 }
 
 - (IBAction)companyInput:(id)sender {
@@ -56,32 +57,58 @@
 }
 
 - (IBAction)whenOneClicked {
-//    if (tag.name == 1)
-    tag = 1;
-//    UILabel *label = (UILabel *)[self viewWithTag:1];
-//    tag = (UILabel *)[self viewWithTag:1];
-//    printf([self.view tag]);
-    NSLog(@"%i", tag);
+    imageTag = 1;
+    NSLog(@"The image tag is: %i", imageTag);
+    
 }
 
 - (IBAction) whenTwoClicked {
-    tag = 2;
-    NSLog(@"%i", tag);
+    imageTag = 2;
+    NSLog(@"The image tag is: %i", imageTag);
 }
 
 - (IBAction) whenThreeClicked {
-    tag = 3;
-    NSLog(@"%i", tag);
+    imageTag = 3;
+    NSLog(@"The image tag is: %i", imageTag);
 }
 
 - (IBAction) whenFourClicked {
-    tag = 4;
-    NSLog(@"%i", tag);
+    imageTag = 4;
+    NSLog(@"The image tag is: %i", imageTag);
 }
 
 - (IBAction) whenFiveClicked {
-    tag = 5;
-    NSLog(@"%i", tag);
+    imageTag = 5;
+    NSLog(@"The image tag is: %i", imageTag);
+}
+
+- (IBAction) whenSubmitted:(id)sender {
+    // add data fields
+    companyText = _companyField.text;
+    NSLog(@"The company field is: %@", companyText);
+    nameText = _nameField.text;
+    NSLog(@"The name field is: %@", nameText);
+    phoneText = _phoneField.text;
+    NSLog(@"The phone field is: %@", phoneText);
+    emailText = _emailField.text;
+    NSLog(@"The email field is: %@", emailText);
+    
+    //Identify location for screen
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
+    
+    //Size to screenshot to get business card image - maybe change
+    UIGraphicsBeginImageContext(CGSizeMake(329,203));
+    //View Controller size is 600 by 600; maybe chage
+    
+    //Take screenshot of business card region and add to phone's camera roll
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage*theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIImageWriteToSavedPhotosAlbum(theImage,nil,NULL,NULL);
+    
+    NSData*theImageData = UIImageJPEGRepresentation(theImage, 1.0 ); //you can use PNG too
+    [theImageData writeToFile:@"blue-whiteCropped.jpg" atomically:YES];
 }
 
 
