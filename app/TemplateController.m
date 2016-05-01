@@ -6,7 +6,7 @@
 //  Copyright (c) 2016 nyu.edu. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "HomeViewController.h"
 #import "TemplateController.h"
 
 
