@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
+
 		921D25661CC81F4E00F988EC /* TemplateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 921D25651CC81F4E00F988EC /* TemplateController.m */; };
 		9269721E1CC816E000306483 /* Templates.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9269721D1CC816E000306483 /* Templates.storyboard */; };
 		928A984A1CD004D5009984F7 /* orange-multiDesign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928A98491CD004D5009984F7 /* orange-multiDesign.jpg */; };
@@ -20,7 +20,7 @@
 		928A98581CD00BD5009984F7 /* red-silverDesign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928A98571CD00BD5009984F7 /* red-silverDesign.jpg */; };
 		92CB33031CCEA5FA004CE971 /* Standard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92CB33021CCEA5FA004CE971 /* Standard.jpg */; };
 		92CC48501CCEDE9300305889 /* purple-pinkDesign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92CC484F1CCEDE9300305889 /* purple-pinkDesign.jpg */; };
-=======
+
 		31342B831CD118F100A907EE /* MessageBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31342B821CD118F100A907EE /* MessageBoxViewController.m */; settings = {ASSET_TAGS = (); }; };
 		31342B891CD1288B00A907EE /* swipeableMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31342B881CD1288B00A907EE /* swipeableMessageCell.m */; settings = {ASSET_TAGS = (); }; };
 		313A27C51CCEAE4000E3EB90 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313A27C41CCEAE4000E3EB90 /* SignupViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -36,7 +36,7 @@
 		31FF3C4A1CCFE5850044E6E0 /* searchResultsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FF3C491CCFE5850044E6E0 /* searchResultsTableCell.m */; settings = {ASSET_TAGS = (); }; };
 		31FF3C4D1CCFE8EF0044E6E0 /* businessCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FF3C4C1CCFE8EF0044E6E0 /* businessCardTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		4309933B00DC3C8B129C3727 /* libPods-cardme.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9BE383A3460D650C2C27373 /* libPods-cardme.a */; };
->>>>>>> 528c237ce49a812a348bac8f8a1a289e5de76615
+
 		D6C2588A1CBFF30E00D4A58E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C258891CBFF30E00D4A58E /* main.m */; };
 		D6C2588D1CBFF30E00D4A58E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */; };
 		D6C258901CBFF30E00D4A58E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2588F1CBFF30E00D4A58E /* LoginViewController.m */; };
@@ -45,7 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
+
 		921D25641CC81F4E00F988EC /* TemplateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TemplateController.h; path = ../TemplateController.h; sourceTree = "<group>"; };
 		921D25651CC81F4E00F988EC /* TemplateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TemplateController.m; path = ../TemplateController.m; sourceTree = "<group>"; };
 		9269721D1CC816E000306483 /* Templates.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Templates.storyboard; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		928A98571CD00BD5009984F7 /* red-silverDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "red-silverDesign.jpg"; sourceTree = "<group>"; };
 		92CB33021CCEA5FA004CE971 /* Standard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Standard.jpg; sourceTree = "<group>"; };
 		92CC484F1CCEDE9300305889 /* purple-pinkDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "purple-pinkDesign.jpg"; sourceTree = "<group>"; };
-=======
+
 		31342B811CD118F100A907EE /* MessageBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBoxViewController.h; sourceTree = "<group>"; };
 		31342B821CD118F100A907EE /* MessageBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBoxViewController.m; sourceTree = "<group>"; };
 		31342B871CD1288B00A907EE /* swipeableMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swipeableMessageCell.h; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 		9FCCA8FB7406609B7B213676 /* Pods-cardme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cardme.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cardme/Pods-cardme.debug.xcconfig"; sourceTree = "<group>"; };
 		AC546D770D1555B3F746199F /* Pods-cardme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cardme.release.xcconfig"; path = "Pods/Target Support Files/Pods-cardme/Pods-cardme.release.xcconfig"; sourceTree = "<group>"; };
 		C9BE383A3460D650C2C27373 /* libPods-cardme.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cardme.a"; sourceTree = BUILT_PRODUCTS_DIR; };
->>>>>>> 528c237ce49a812a348bac8f8a1a289e5de76615
+
 		D6C258851CBFF30E00D4A58E /* cardme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C258891CBFF30E00D4A58E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6C2588B1CBFF30E00D4A58E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
+
 				92CB33031CCEA5FA004CE971 /* Standard.jpg in Resources */,
 				D6C258A01CC0026E00D4A58E /* BSCard.jpg in Resources */,
 				D6C258981CBFF30E00D4A58E /* LaunchScreen.storyboard in Resources */,
@@ -279,11 +279,11 @@
 				928A984A1CD004D5009984F7 /* orange-multiDesign.jpg in Resources */,
 				92CC48501CCEDE9300305889 /* purple-pinkDesign.jpg in Resources */,
 				D6C258951CBFF30E00D4A58E /* Assets.xcassets in Resources */,
-=======
+
 				318B006F1CCEBE7800781601 /* Assets.xcassets in Resources */,
 				D6C258A01CC0026E00D4A58E /* BSCard.jpg in Resources */,
 				318B00711CCEBF9600781601 /* Launch Screen.storyboard in Resources */,
->>>>>>> 528c237ce49a812a348bac8f8a1a289e5de76615
+
 				D6C258931CBFF30E00D4A58E /* Main.storyboard in Resources */,
 				9269721E1CC816E000306483 /* Templates.storyboard in Resources */,
 				928A98501CD00B96009984F7 /* black-wood.jpg in Resources */,
@@ -357,9 +357,9 @@
 				316D06C61CD2973100CD47A6 /* BusinessCardTableViewMaster.m in Sources */,
 				31FF3C441CCFCB050044E6E0 /* UserSearchTableViewController.m in Sources */,
 				D6C2588A1CBFF30E00D4A58E /* main.m in Sources */,
-<<<<<<< HEAD
+
 				921D25661CC81F4E00F988EC /* TemplateController.m in Sources */,
-=======
+
 				316D06D21CD3302400CD47A6 /* HomeViewController.m in Sources */,
 				3180B7EA1CC8188800641910 /* cardme.xcdatamodeld in Sources */,
 				31342B891CD1288B00A907EE /* swipeableMessageCell.m in Sources */,
@@ -367,7 +367,7 @@
 				31FF3C4D1CCFE8EF0044E6E0 /* businessCardTableViewCell.m in Sources */,
 				31342B831CD118F100A907EE /* MessageBoxViewController.m in Sources */,
 				316D06C21CD2585B00CD47A6 /* Card.m in Sources */,
->>>>>>> 528c237ce49a812a348bac8f8a1a289e5de76615
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,11 +473,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = cardme/Info.plist;
-<<<<<<< HEAD
+
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-=======
+
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
->>>>>>> 528c237ce49a812a348bac8f8a1a289e5de76615
+
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyu.edu.cardme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -493,11 +493,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = cardme/Info.plist;
-<<<<<<< HEAD
+
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-=======
+
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
->>>>>>> 528c237ce49a812a348bac8f8a1a289e5de76615
+
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = nyu.edu.cardme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
