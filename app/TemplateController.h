@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-//static int *tag;
+NSString *encryption;
 
 @interface TemplateController : UIViewController
 - (IBAction)textFieldDoneEditing:(id)sender;

@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "swipeableMessageCell.h"
 
+
 @interface MessageBoxViewController : UITableViewController <NSFetchedResultsControllerDelegate, swipeableMessageCellDelegate>
 
 @property (nonatomic, strong) NSFetchedResultsController* fetchedResultsController;

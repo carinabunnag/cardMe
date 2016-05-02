@@ -94,6 +94,10 @@
     emailText = _emailField.text;
     NSLog(@"The email field is: %@", emailText);
     
+    [self getEncryption];
+}
+
+- (NSString *)getEncryption {
     //Identify location for screen
     UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
     
@@ -110,7 +114,14 @@
     
     NSData*theImageData = UIImageJPEGRepresentation(theImage, 1.0 ); //you can use PNG too
     [theImageData writeToFile:@"blue-whiteCropped.jpg" atomically:YES];
+    
+    //Encode the screenshot image file into text and store into the firebase
+    NSData *imageData = UIImagePNGRepresentation(theImage);
+    NSString *base64 = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    encryption = base64;
+    return encryption;
 }
+
 
 
 @end
