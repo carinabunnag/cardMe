@@ -26,8 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *today;
 @property (weak, nonatomic) IBOutlet UILabel *msgct;
 
-
-
+extern NSInteger numberOfMessages;
 -(void) initializeFetchedResultsController;
 - (IBAction)signout:(id)sender;
 

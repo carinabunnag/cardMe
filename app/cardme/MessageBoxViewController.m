@@ -30,7 +30,6 @@ static NSString* templateIDKey = @"templateID";
 static NSString* userIDKey = @"userID";
 static NSString* versionKey = @"version";
 static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
-static int numMessages = 0;
 
 @implementation MessageBoxViewController
 {
@@ -48,11 +47,13 @@ static int numMessages = 0;
     [self initializeFetchedResultsController];
     NSLog(@"fetched results controller set\n\n");
     self.didFetch = [NSNumber numberWithBool: YES];
-    
     self.username.text = self.appdelegate.myCard.email;
     self.today.text = [self.appdelegate getToday];
     self.msgct.text = [NSString stringWithFormat:@"%lu", self.fetchedResultsController.fetchedObjects.count];
     
+    
+    //numberOfMessages = 0;
+
     if ([self.msgct.text integerValue] > lastmsgct) {
         [self youHaveNewMessagesAlert];
     }
@@ -104,73 +105,7 @@ static int numMessages = 0;
 }
 
 - (void) youHaveNewMessagesAlert {
-    //Create time interval variables and random value
-    int track = arc4random_uniform(3);
-    NSTimeInterval playBack = 0;
-    NSTimeInterval playStop = 0;
-    NSTimeInterval loop = 0;
-    
-    /*
-     * Depending on the random track value, play a specific interval of
-     * the audio file as mapped in each body of the if/else if statements
-     */
-    
-    if (track == 0) {
-        playBack = 71;
-        playStop = 72;
-        
-        //Play audio file starting at playBack
-        [musicPlayer setCurrentTime:playBack];
-        [musicPlayer play];
-        
-        /*Create loop to play audio file until it reaches
-         the end of playStop and stop it*/
-        int x = 1;
-        while (x > 0) {
-            loop = musicPlayer.currentTime;
-            if (loop >= playStop) {
-                [musicPlayer stop];
-                break;
-            }
-        }
-    } else if (track == 1) {
-        playBack = 22.5;
-        playStop = 25.5;
-        
-        //Play audio file starting at playBack
-        [musicPlayer setCurrentTime:playBack];
-        [musicPlayer play];
-        
-        
-        /*Create loop to play audio file until it reaches
-         the end of playStop and stop it*/
-        int x = 1;
-        while (x > 0) {
-            loop = musicPlayer.currentTime;
-            if (loop >= playStop) {
-                [musicPlayer stop];
-                break;
-            }
-        }
-    } else if(track == 2) {
-        playBack = 46.5;
-        playStop = 48.6;
-        
-        //Play audio file starting at playBack
-        [musicPlayer setCurrentTime:playBack];
-        [musicPlayer play];
-        
-        /*Create loop to play audio file until it reaches
-         the end of playStop and stop it*/
-        int x = 1;
-        while (x > 0) {
-            loop = musicPlayer.currentTime;
-            if (loop >= playStop) {
-                [musicPlayer stop];
-                break;
-            }
-        }
-    }
+    //Create time interval variables and random value & play music
     
     UIAlertController *newMessagesAlert = [UIAlertController alertControllerWithTitle:@"You have new messages!" message:nil preferredStyle:UIAlertControllerStyleAlert];
     

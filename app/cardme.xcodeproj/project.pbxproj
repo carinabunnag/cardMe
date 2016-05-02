@@ -32,10 +32,9 @@
 		928A98541CD00BBF009984F7 /* blue-whiteDesign.png in Resources */ = {isa = PBXBuildFile; fileRef = 928A98531CD00BBF009984F7 /* blue-whiteDesign.png */; };
 		928A98561CD00BCA009984F7 /* goldDesign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928A98551CD00BCA009984F7 /* goldDesign.jpg */; };
 		928A98581CD00BD5009984F7 /* red-silverDesign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 928A98571CD00BD5009984F7 /* red-silverDesign.jpg */; };
-		929A859F1CD6E50500A51973 /* AnotherOne.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 929A859E1CD6E50500A51973 /* AnotherOne.mp3 */; };
-		929A85A11CD6EB0B00A51973 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929A85A01CD6EB0B00A51973 /* Main.storyboard */; };
 		92CB33031CCEA5FA004CE971 /* Standard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92CB33021CCEA5FA004CE971 /* Standard.jpg */; };
 		92CC48501CCEDE9300305889 /* purple-pinkDesign.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 92CC484F1CCEDE9300305889 /* purple-pinkDesign.jpg */; };
+		D6C1A68B1CD7A355001E0C3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C1A68A1CD7A355001E0C3C /* Main.storyboard */; };
 		D6C2588A1CBFF30E00D4A58E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C258891CBFF30E00D4A58E /* main.m */; };
 		D6C2588D1CBFF30E00D4A58E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */; };
 		D6C258901CBFF30E00D4A58E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6C2588F1CBFF30E00D4A58E /* LoginViewController.m */; };
@@ -81,13 +80,12 @@
 		928A98531CD00BBF009984F7 /* blue-whiteDesign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-whiteDesign.png"; sourceTree = "<group>"; };
 		928A98551CD00BCA009984F7 /* goldDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = goldDesign.jpg; sourceTree = "<group>"; };
 		928A98571CD00BD5009984F7 /* red-silverDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "red-silverDesign.jpg"; sourceTree = "<group>"; };
-		929A859E1CD6E50500A51973 /* AnotherOne.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = AnotherOne.mp3; path = ../../../../../Downloads/AnotherOne.mp3; sourceTree = "<group>"; };
-		929A85A01CD6EB0B00A51973 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../../../.Trash/Main.storyboard; sourceTree = "<group>"; };
 		92CB33021CCEA5FA004CE971 /* Standard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Standard.jpg; sourceTree = "<group>"; };
 		92CC484F1CCEDE9300305889 /* purple-pinkDesign.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "purple-pinkDesign.jpg"; sourceTree = "<group>"; };
 		9FCCA8FB7406609B7B213676 /* Pods-cardme.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cardme.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cardme/Pods-cardme.debug.xcconfig"; sourceTree = "<group>"; };
 		AC546D770D1555B3F746199F /* Pods-cardme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cardme.release.xcconfig"; path = "Pods/Target Support Files/Pods-cardme/Pods-cardme.release.xcconfig"; sourceTree = "<group>"; };
 		C9BE383A3460D650C2C27373 /* libPods-cardme.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cardme.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6C1A68A1CD7A355001E0C3C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D6C258851CBFF30E00D4A58E /* cardme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C258891CBFF30E00D4A58E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6C2588B1CBFF30E00D4A58E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -160,7 +158,7 @@
 				31342B811CD118F100A907EE /* MessageBoxViewController.h */,
 				31342B821CD118F100A907EE /* MessageBoxViewController.m */,
 				31342B881CD1288B00A907EE /* swipeableMessageCell.m */,
-				929A85A01CD6EB0B00A51973 /* Main.storyboard */,
+				D6C1A68A1CD7A355001E0C3C /* Main.storyboard */,
 				D6C2588E1CBFF30E00D4A58E /* LoginViewController.h */,
 				D6C2588F1CBFF30E00D4A58E /* LoginViewController.m */,
 				316D06C41CD2973100CD47A6 /* BusinessCardTableViewMaster.h */,
@@ -191,7 +189,6 @@
 		D6C258881CBFF30E00D4A58E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				929A859E1CD6E50500A51973 /* AnotherOne.mp3 */,
 				928A98551CD00BCA009984F7 /* goldDesign.jpg */,
 				928A98531CD00BBF009984F7 /* blue-whiteDesign.png */,
 				928A98511CD00BA7009984F7 /* blue-greenDesign.jpg */,
@@ -280,11 +277,10 @@
 				318B00711CCEBF9600781601 /* Launch Screen.storyboard in Resources */,
 				928A98501CD00B96009984F7 /* black-wood.jpg in Resources */,
 				928A984E1CD00B7A009984F7 /* green-whiteDesign.jpg in Resources */,
-				929A85A11CD6EB0B00A51973 /* Main.storyboard in Resources */,
+				D6C1A68B1CD7A355001E0C3C /* Main.storyboard in Resources */,
 				928A98521CD00BA7009984F7 /* blue-greenDesign.jpg in Resources */,
 				928A98581CD00BD5009984F7 /* red-silverDesign.jpg in Resources */,
 				928A98541CD00BBF009984F7 /* blue-whiteDesign.png in Resources */,
-				929A859F1CD6E50500A51973 /* AnotherOne.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
