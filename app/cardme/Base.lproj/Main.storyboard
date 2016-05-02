@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PxO-eC-8Or">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -1550,7 +1549,6 @@
         <!--Template 1-->
         <scene sceneID="K3i-EQ-IE8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tRD-aT-6Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController title="Template 1" id="sPC-D1-T9j" customClass="TemplateController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3yk-iA-Crt"/>
@@ -1618,6 +1616,7 @@
                         <outlet property="submit" destination="j9j-Yo-zej" id="yFr-zg-Ev5"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tRD-aT-6Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1680" y="-2466"/>
         </scene>
@@ -1710,7 +1709,6 @@
         <!--Template Controller-->
         <scene sceneID="WgM-EV-Sil">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iXE-DU-kvw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="IsK-PU-EJS" customClass="TemplateController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cha-tr-zhJ"/>
@@ -1776,13 +1774,13 @@
                         <outlet property="phoneField" destination="WrI-xA-wnz" id="x3d-8A-lgz"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iXE-DU-kvw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1948" y="-1785"/>
         </scene>
         <!--Template Controller-->
         <scene sceneID="Cx6-GK-YJS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="201-Us-Vab" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="xCj-3j-Hk2" customClass="TemplateController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Idd-Rq-S2d"/>
@@ -1848,13 +1846,13 @@
                         <outlet property="phoneField" destination="8vL-jj-kqZ" id="4qw-G5-9LY"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="201-Us-Vab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2398" y="-1040"/>
         </scene>
         <!--Template Controller-->
         <scene sceneID="mhp-tA-I8G">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WYP-de-BMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="jrA-iN-0eh" customClass="TemplateController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bq8-md-7xt"/>
@@ -1920,13 +1918,13 @@
                         <outlet property="phoneField" destination="Vld-Cs-gJa" id="oNp-Av-6jO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WYP-de-BMq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2616" y="-1785"/>
         </scene>
         <!--Template Controller-->
         <scene sceneID="abU-0f-xLh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VVd-HT-PSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="GLf-Xr-QIo" customClass="TemplateController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wGE-mA-ZeZ"/>
@@ -1993,6 +1991,7 @@
                         <outlet property="phoneField" destination="Idw-Lx-opz" id="wdZ-7e-nl4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VVd-HT-PSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1138" y="-1815"/>
         </scene>
