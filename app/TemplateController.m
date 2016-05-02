@@ -9,7 +9,6 @@
 #import "TemplateController.h"
 #import "HomeViewController.h"
 #import <QuartzCore/QuartzCore.h>
-
 @interface TemplateController()
 @property (weak, nonatomic) IBOutlet UIButton *template1;
 @property (weak, nonatomic) IBOutlet UIButton *template2;
@@ -23,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *submit;
 @end
 
+NSString *imageTextFile;
 
 @implementation TemplateController
 {
@@ -94,10 +94,7 @@
     emailText = _emailField.text;
     NSLog(@"The email field is: %@", emailText);
     
-    [self getEncryption];
-}
-
-- (NSString *)getEncryption {
+//    [self getEncryption];
     //Identify location for screen
     UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
     
@@ -118,9 +115,46 @@
     //Encode the screenshot image file into text and store into the firebase
     NSData *imageData = UIImagePNGRepresentation(theImage);
     NSString *base64 = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-    encryption = base64;
-    return encryption;
+    imageTextFile = base64;
+    NSLog(@"%@",imageTextFile);
+    //    NSLog(@"encoded string: %@", base64);
+    //    encryption = base64;
+    //    return encryption;
+    
+//    HomeViewController *homeViewController = [[HomeViewController alloc] initWithNib:@"HomeViewController" bundle:nil];
+//    homeViewController.encryption = base64;
+//    [self pushViewController:homeViewController animated:YES];
 }
+
+//- (void)getEncryption {
+//    //Identify location for screen
+//    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0);
+//    
+//    //Size to screenshot to get business card image - maybe change
+//    UIGraphicsBeginImageContext(CGSizeMake(329,203));
+//    //View Controller size is 600 by 600; maybe chage
+//    
+//    //Take screenshot of business card region and add to phone's camera roll
+//    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage*theImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    UIImageWriteToSavedPhotosAlbum(theImage,nil,NULL,NULL);
+//    
+//    NSData*theImageData = UIImageJPEGRepresentation(theImage, 1.0 ); //you can use PNG too
+//    [theImageData writeToFile:@"blue-whiteCropped.jpg" atomically:YES];
+//    
+//    //Encode the screenshot image file into text and store into the firebase
+//    NSData *imageData = UIImagePNGRepresentation(theImage);
+//    NSString *base64 = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+////    NSLog(@"encoded string: %@", base64);
+////    encryption = base64;
+////    return encryption;
+//    
+//    HomeViewController *homeViewController = [[HomeViewController alloc] initWithNib:@"HomeViewController" bundle:nil];
+//    homeViewController.encryption = base64;
+//    [self pushViewController:homeViewController animated:YES];
+//}
 
 
 

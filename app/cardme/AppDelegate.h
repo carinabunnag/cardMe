@@ -39,8 +39,6 @@
           WithUser: (NSString*) userID;
 - (void) deleteCardFromCoreData : (Card*) message;
 
-- (BOOL) readInMessagesFromFirebase;
-
 - (void) readMyCardFromCoreData;
 - (void) readMyCardFromCoreDataWithUsername: (NSString*) username;
 

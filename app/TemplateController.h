@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+//#define NSString *encryption "";
+//@import Foundation;
 
-static NSString *encryption;
+extern NSString *imageTextFile;
 
 @interface TemplateController : UIViewController
+
+//@property (nonatomic) NSString *encryption;
 - (IBAction)textFieldDoneEditing:(id)sender;
+//extern NSString *imageText;
 
 @end

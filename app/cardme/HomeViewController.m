@@ -16,7 +16,9 @@
 @implementation HomeViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     self.appdelegate = [[UIApplication sharedApplication] delegate];
     self.myCard = self.appdelegate.myCard;
     self.username.text = self.myCard.email;
@@ -34,19 +36,23 @@
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
-    NSLog(@"encryption: %@", encryption);
+    NSLog(@"%@ Yo i hope this works: ",imageTextFile);
     
-//    NSData *data = [[NSData alloc]initWithBase64EncodedString:encryption options:NSDataBase64DecodingIgnoreUnknownCharacters];
-//    UIImage *card = [UIImage imageWithData:data];
-//    
-//    
-//    UIImageView *imageview = [[UIImageView alloc]init];
-//    imageview.image =card;
-//    
-//    //Can change dimension of image
-//    imageview.frame = CGRectMake(50, 50, 150, 150);
-//    
-//    [self.view addSubview:imageview];
+    //When user is accessing an contact, connect w/ Firebase and retrieve
+    //NSString value of other user, then decode the image to be shown
+    //Decode image file back into an image to be shown
+    if (imageTextFile != NULL) {
+        NSData *data = [[NSData alloc] initWithBase64EncodedString:imageTextFile options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        UIImage *card = [UIImage imageWithData:data];
+            UIImageView *imageview = [[UIImageView alloc]init];
+            imageview.image =card;
+        
+            //Can change dimension of image
+            imageview.frame = CGRectMake(50, 50, 150, 150);
+            
+            [self.view addSubview:imageview];
+    }
+
     
 }
 /*

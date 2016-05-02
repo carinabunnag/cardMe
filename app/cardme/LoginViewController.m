@@ -69,7 +69,6 @@
                 [self.appdelegate readMyCardFromCoreDataWithUsername: username_given];
                 NSLog(@"card name: %@\n", self.appdelegate.myCard.email);
             }
-            [self.appdelegate readInMessagesFromFirebase];
             //segue
             [self performSegueWithIdentifier:@"loginSuccess" sender:self];
         }

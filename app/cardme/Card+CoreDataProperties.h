@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *userID;
 @property (nullable, nonatomic, retain) NSNumber *version;
 @property (nullable, nonatomic, retain) NSNumber *cardType;
+@property (nullable, nonatomic, retain) NSString *sharedWith;
+@property (nullable, nonatomic, retain) NSData *cardImage;
 
 @end
 

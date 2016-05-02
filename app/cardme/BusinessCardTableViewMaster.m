@@ -22,6 +22,9 @@ static NSString* positionKey = @"position";
 static NSString* templateIDKey = @"templateID";
 static NSString* userIDKey = @"userID";
 static NSString* versionKey = @"version";
+static NSString* cardImageKey = @"cardImage";
+static NSString* sharedWithKey = @"sharedWith";
+
 static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 @interface BusinessCardTableViewMaster ()
 
@@ -48,6 +51,12 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    self.appdelegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [self.appdelegate managedObjectContext];
+    [self initializeFetchedResultsController];
+    self.username.text = self.appdelegate.myCard.email;
+    self.today.text = [self.appdelegate getToday];
+    self.cardct.text = [NSString stringWithFormat: @"%@", [self.appdelegate retrieveCardCt]];
     
 }
 
@@ -74,7 +83,7 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 
 -(void) initializeFetchedResultsController {
     NSFetchRequest* fetchRequest = [NSFetchRequest fetchRequestWithEntityName:cardEntityName];
-    NSPredicate* fetchPredicate = [NSPredicate predicateWithFormat:@"cardType == 1"];
+    NSPredicate* fetchPredicate = [NSPredicate predicateWithFormat:@"cardType == 1 AND sharedWith == %@", self.appdelegate.myCard.userID];
     NSSortDescriptor* nameSort = [NSSortDescriptor sortDescriptorWithKey:lastNameKey ascending:YES];
     
     [fetchRequest setPredicate: fetchPredicate];

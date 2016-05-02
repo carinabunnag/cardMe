@@ -30,6 +30,15 @@ static
     self.cardCount.text = [NSString stringWithFormat:@"%@", [self.appdelegate retrieveCardCt]];
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear: YES];
+    self.appdelegate = [[UIApplication sharedApplication] delegate];
+    self.username.text = self.appdelegate.myCard.email;
+    self.today.text = [self.appdelegate getToday];
+    self.cardCount.text = [NSString stringWithFormat:@"%@", [self.appdelegate retrieveCardCt]];
+
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

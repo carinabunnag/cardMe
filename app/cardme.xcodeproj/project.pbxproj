@@ -86,10 +86,11 @@
 		AC546D770D1555B3F746199F /* Pods-cardme.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cardme.release.xcconfig"; path = "Pods/Target Support Files/Pods-cardme/Pods-cardme.release.xcconfig"; sourceTree = "<group>"; };
 		C9BE383A3460D650C2C27373 /* libPods-cardme.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cardme.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C1A68A1CD7A355001E0C3C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D6C1A68C1CD7C301001E0C3C /* cardme3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = cardme3.xcdatamodel; sourceTree = "<group>"; };
 		D6C258851CBFF30E00D4A58E /* cardme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cardme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6C258891CBFF30E00D4A58E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D6C2588B1CBFF30E00D4A58E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = cardme/AppDelegate.m; sourceTree = "<group>"; };
+		D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D6C2588E1CBFF30E00D4A58E /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D6C2588F1CBFF30E00D4A58E /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D6C258991CBFF30E00D4A58E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,7 +129,6 @@
 		D6C2587C1CBFF30E00D4A58E = {
 			isa = PBXGroup;
 			children = (
-				D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */,
 				D6C258871CBFF30E00D4A58E /* cardme */,
 				D6C258861CBFF30E00D4A58E /* Products */,
 				6B3558EA75E77027D8652C64 /* Pods */,
@@ -147,6 +147,7 @@
 		D6C258871CBFF30E00D4A58E /* cardme */ = {
 			isa = PBXGroup;
 			children = (
+				D6C2588C1CBFF30E00D4A58E /* AppDelegate.m */,
 				31342B871CD1288B00A907EE /* swipeableMessageCell.h */,
 				921D25641CC81F4E00F988EC /* TemplateController.h */,
 				921D25651CC81F4E00F988EC /* TemplateController.m */,
@@ -501,10 +502,11 @@
 		3180B7E81CC8188800641910 /* cardme.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D6C1A68C1CD7C301001E0C3C /* cardme3.xcdatamodel */,
 				316D06C31CD25DD400CD47A6 /* cardme2.xcdatamodel */,
 				3180B7E91CC8188800641910 /* cardme.xcdatamodel */,
 			);
-			currentVersion = 316D06C31CD25DD400CD47A6 /* cardme2.xcdatamodel */;
+			currentVersion = D6C1A68C1CD7C301001E0C3C /* cardme3.xcdatamodel */;
 			path = cardme.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

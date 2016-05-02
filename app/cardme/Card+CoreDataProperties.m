@@ -22,5 +22,7 @@
 @dynamic userID;
 @dynamic version;
 @dynamic cardType;
+@dynamic sharedWith;
+@dynamic cardImage;
 
 @end

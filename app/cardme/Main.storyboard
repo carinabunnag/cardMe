@@ -439,7 +439,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsf-L6-wCn">
-                                <rect key="frame" x="140" y="423" width="64" height="30"/>
+                                <rect key="frame" x="81" y="492" width="64" height="30"/>
                                 <state key="normal" title="Edit Card">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1943,7 +1943,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRD-aT-6Jc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676" y="-2478"/>
+            <point key="canvasLocation" x="1684" y="-2438"/>
         </scene>
         <!--Templates-->
         <scene sceneID="0sD-do-P3X">
@@ -1960,16 +1960,6 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yaN-sB-rxQ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="861"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hp2-S9-svN">
-                                        <rect key="frame" x="21" y="331" width="252" height="148"/>
-                                        <state key="normal" title="Edit Card" image="green-whiteDesign.jpg">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="whenThreeClicked" destination="vMN-Ke-dbW" eventType="touchUpInside" id="69Y-Eq-E7D"/>
-                                            <segue destination="IsK-PU-EJS" kind="presentation" id="PwK-Uk-ICb"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oA-R3-3mS">
                                         <rect key="frame" x="21" y="19" width="252" height="148"/>
                                         <state key="normal" title="Edit Card" image="blue-whiteDesign.png">
@@ -2009,6 +1999,16 @@
                                         <connections>
                                             <action selector="whenFourClicked" destination="vMN-Ke-dbW" eventType="touchUpInside" id="eAQ-k0-4Gm"/>
                                             <segue destination="jrA-iN-0eh" kind="presentation" id="d3b-dr-T5a"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hp2-S9-svN">
+                                        <rect key="frame" x="21" y="331" width="252" height="148"/>
+                                        <state key="normal" title="Edit Card" image="green-whiteDesign.jpg">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="whenThreeClicked" destination="vMN-Ke-dbW" eventType="touchUpInside" id="69Y-Eq-E7D"/>
+                                            <segue destination="IsK-PU-EJS" kind="presentation" id="PwK-Uk-ICb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2173,7 +2173,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="201-Us-Vab" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2398" y="-1040"/>
+            <point key="canvasLocation" x="2498" y="-1040"/>
         </scene>
         <!--Template Controller-->
         <scene sceneID="mhp-tA-I8G">
@@ -2318,7 +2318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVd-HT-PSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1138" y="-1815"/>
+            <point key="canvasLocation" x="1250" y="-1755"/>
         </scene>
     </scenes>
     <resources>
@@ -2331,7 +2331,7 @@
         <image name="purple-pinkDesign.jpg" width="666" height="390"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="79O-9s-mqA"/>
         <segue reference="p8n-cc-wlP"/>
-        <segue reference="nel-it-iqH"/>
     </inferredMetricsTieBreakers>
 </document>

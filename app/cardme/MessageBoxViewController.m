@@ -7,8 +7,6 @@
 //
 
 #import "MessageBoxViewController.h"
-#import <AVFoundation/AVFoundation.h>
-#include <stdlib.h>
 #define INTRO_MESSAGE (-1)
 #define MY_CARD (0)
 #define BUSINESS_CARD (1)
@@ -17,11 +15,14 @@
 static int lastmsgct;
 
 @interface MessageBoxViewController ()
+
 @end
 
 static NSString* cardEntityName = @"Card";
-static NSString* cardTypeKey = @"cardType";
+static NSString* msgTypeKey = @"cardType";   //plain messages have key -1, card carrying messages have key 1
 static NSString* companyKey = @"company";
+static NSString* sharedWithKey = @"sharedWith";
+static NSString* cardImageKey = @"cardImage";
 static NSString* emailKey = @"email";
 static NSString* firstNameKey = @"firstName";
 static NSString* lastNameKey = @"lastName";
@@ -31,43 +32,34 @@ static NSString* userIDKey = @"userID";
 static NSString* versionKey = @"version";
 static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 
+
 @implementation MessageBoxViewController
-{
-    AVAudioPlayer *musicPlayer;
-}
 
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    NSLog(@"view did load\n\n");
+    NSLog(@"VIEW DID LOAD\n\n");
     self.appdelegate = [[UIApplication sharedApplication] delegate];
     NSLog(@"app delegate set\n"); //reading in messages from firebase\n
-    [self.appdelegate readInMessagesFromFirebase];
+    [self readInMessagesFromFirebase];
     NSLog(@"initializing fetched results controller\n");//messages from firebase read\n
-    [self initializeFetchedResultsController];
+    
+    self.privateMoc = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSPrivateQueueConcurrencyType];
+    [self.privateMoc setParentContext:[self.appdelegate managedObjectContext]];
+    
+    //    [self initializeFetchedResultsController];
     NSLog(@"fetched results controller set\n\n");
     self.didFetch = [NSNumber numberWithBool: YES];
+    
     self.username.text = self.appdelegate.myCard.email;
     self.today.text = [self.appdelegate getToday];
-    self.msgct.text = [NSString stringWithFormat:@"%lu", self.fetchedResultsController.fetchedObjects.count];
+    self.msgct.text = [NSString stringWithFormat:@"%lu", self.datasource.count];
     
-    
-    //numberOfMessages = 0;
-
-    if ([self.msgct.text integerValue] > lastmsgct) {
+    if (self.datasource.count > lastmsgct) {
         [self youHaveNewMessagesAlert];
     }
-
-    //add a header
-//    UIView *header = [[UIView alloc] initWithFrame: CGRectMake(0,50,self.tableView.frame.size.width, 50)];
-//   // UIImageView* headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0,30,self.tableView.frame.size.width, 30)];
-//    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,20,self.tableView.frame.size.width, 30)];
-//    headerLabel.text = @"Swipe to accept or deny message";
-//    headerLabel.textAlignment = NSTextAlignmentCenter;
-//    [header addSubview:headerLabel];
-//    self.tableView.tableHeaderView = header;
-//    self.definesPresentationContext = YES;
-
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -76,22 +68,81 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
     self.didFetch = [NSNumber numberWithBool: NO];
+    
+    //save private queue moc stuff to general queue
+    [self.privateMoc save: nil];
+    
+    //now save general queue managed object context
+    [self.appdelegate saveContext];
+    
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:YES];
+    [super viewWillAppear: YES];
+    
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    //    NSLog(@"VIEW WILL APPEAR\n\n");
     //make sure this isn't the viewWillAppear that is called right after viewDidLoad
     //should only do all the fetch setup if view is appearing anew, but not being loaded again
     if ([self.didFetch boolValue] == NO) {
         NSLog(@"view will appear refetching messages");
         self.appdelegate = [[UIApplication sharedApplication] delegate];
-        [self.appdelegate readInMessagesFromFirebase];
-        [self initializeFetchedResultsController];
-        if ([self.msgct.text integerValue] > lastmsgct) {
+        self.privateMoc = [[NSManagedObjectContext alloc] initWithConcurrencyType: NSPrivateQueueConcurrencyType];
+        [self.privateMoc setParentContext:[self.appdelegate managedObjectContext]];
+        [self readInMessagesFromFirebase];
+        //        [self.appdelegate readInMessagesFromFirebase];
+        //        [self initializeFetchedResultsController];
+        self.msgct.text = [NSString stringWithFormat:@"%lu", self.datasource.count];
+        if (self.datasource.count > lastmsgct) {
             [self youHaveNewMessagesAlert];
         }
+        [self.tableView reloadData];
     }
+    
+}
+
+- (BOOL) readInMessagesFromFirebase {
+    NSLog(@"Query for user beginning");
+    //get reference to site
+    if (self.firebaseRootRef == NULL) {
+        self.firebaseRootRef = [self.appdelegate getFirebaseRootRef];
+    }
+    NSLog(@"root ref attached");
+    
+    NSString* messageBoxName = [NSString stringWithFormat:@"messages/%@", self.appdelegate.myCard.userID];
+    //get reference for user list
+    Firebase* myMessageBox = [self.firebaseRootRef childByAppendingPath:messageBoxName];
+    
+    //query by child - last name;limit query to last names beginning with the same letter as name
+    self.firebaseSearchQuery = [myMessageBox queryOrderedByKey];
+    NSLog(@"Query for messages ended");
+    
+    NSLog(@"Setup query results array beginning");
+    self.datasource = [[FirebaseTableViewDataSource alloc] initWithQuery:self.firebaseSearchQuery prototypeReuseIdentifier:@"messageBoxCell" view:self.tableView];
+    
+    // self.datasource = [[FirebaseTableViewDataSource alloc] initWithQuery:self.firebaseSearchQuery nibNamed: @"" cellReuseIdentifier:@"searchCellReuse" view:self.tableView];
+    
+    [self.datasource populateCellWithBlock:^(swipeableMessageCell* cell, FDataSnapshot* snapshot) {
+        if ([snapshot.value[msgTypeKey] integerValue] == MESSAGE_CARD) {
+            cell.messageLabel.text = [NSString stringWithFormat:@"Message from %@ %@. Would you like to receive it?", snapshot.value[firstNameKey], snapshot.value[lastNameKey]];
+            cell.messageRef = snapshot.ref;
+        }
+        else {      //intro message
+            cell.messageLabel.text = [NSString stringWithFormat: @"Welcome to CardMe!"];
+            cell.messageRef = snapshot.ref;
+        }
+        cell.delegate = self;
+    }];
+    
+    [self.tableView setDataSource:self.datasource];
+    
+    NSLog(@"Setup query results array ending");
+    return true;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,213 +155,316 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
     [self.appdelegate signOut];
 }
 
-- (void) youHaveNewMessagesAlert {
-    //Create time interval variables and random value & play music
+- (void) yesButtonActionForMessage:(Firebase *)messageRef {
+    /*
+     1) if normal message,
+     a) add it to core data
+     b) remove its reference
+     2) if intro message, delete it
+     */
+    [self.privateMoc performBlockAndWait:^{
+        __block Card* newCard;
+        [messageRef observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+            NSLog(@"adding: %@", snapshot.value[emailKey]);
+            if ([snapshot.value[msgTypeKey] integerValue] == MESSAGE_CARD) {
+                newCard = [NSEntityDescription insertNewObjectForEntityForName:cardEntityName inManagedObjectContext:self.privateMoc];
+                if (snapshot.value[firstNameKey] != [NSNull null]) {
+                    newCard.firstName = snapshot.value[firstNameKey];
+                }
+                if (snapshot.value[lastNameKey] != [NSNull null]) {
+                    newCard.lastName = snapshot.value[lastNameKey];
+                }
+                if (snapshot.value[companyKey] != [NSNull null]) {
+                    newCard.company = snapshot.value[companyKey];
+                }
+                if (snapshot.value[positionKey] != [NSNull null]) {
+                    newCard.position = snapshot.value[positionKey];
+                }
+                if (snapshot.value[emailKey] != [NSNull null]) {
+                    newCard.email = snapshot.value[emailKey];
+                }
+                if (snapshot.value[sharedWithKey] != [NSNull null]) {
+                    newCard.sharedWith = snapshot.value[sharedWithKey];
+                }
+                if (snapshot.value[userIDKey] != [NSNull null]) {
+                    newCard.userID = snapshot.value[userIDKey];
+                }
+                newCard.cardType = [NSNumber numberWithInt: BUSINESS_CARD];
+            }
+        }];
+        NSError* err = nil;
+        [self.privateMoc save:&err];
+        if (err) {
+            NSLog(@"Error occurred trying to save private moc\n%@\n%@\n", [err localizedDescription], [err userInfo]);
+        }
+        else {
+            NSLog(@"Success!");
+        }
+    }];
     
+    [messageRef removeValue];
+}
+
+- (void) noButtonActionForMessage:(Firebase *)messageRef {
+    /*
+     1) remove its reference
+     add confirmation alert later
+     */
+    NSLog(@"message ref: %@", [messageRef description]);
+    [messageRef removeValue];
+    
+}
+
+- (void) youHaveNewMessagesAlert {
     UIAlertController *newMessagesAlert = [UIAlertController alertControllerWithTitle:@"You have new messages!" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
     
     [newMessagesAlert addAction:ok];
     [self presentViewController:newMessagesAlert animated:YES completion:^{
-        lastmsgct = (int)self.fetchedResultsController.fetchedObjects.count;
+        lastmsgct = (int)self.datasource.count;
     }];
-}
-
-//swipeable message cell protocol methods
-- (void) yesButtonActionForMessage: (Card*) message{
-    NSLog(@"Yes button action from delegate\n");
-    lastmsgct--;
-    NSString* alertMessage;
-    if ([message.cardType integerValue] == MESSAGE_CARD) {        //card, just change card type
-        message.cardType = [NSNumber numberWithInt:BUSINESS_CARD];
-        alertMessage = @"Card was successfully added to your collection!";
-    }
-    else {                                                                  //intro message, just remove from core data
-        [self.appdelegate deleteCardFromCoreData : message];
-        [self.appdelegate saveContext];
-        alertMessage = @"Welcome message was successfully removed from your collection!";
-    }
-    
-    UIAlertController* confirmAlert = [UIAlertController alertControllerWithTitle:@"Success!" message:alertMessage preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-    [confirmAlert addAction:ok];
-    
-    [self presentViewController:confirmAlert animated:YES completion:nil];
-    
-    //reset fetchedResults and table view data
-    [self fetchModifiedResults];
-    [self.tableView reloadData];
-}
-
-/*1) alert confirming that person wants to remove element
- 2) if no, return
- 3) if yes, remove managedObject from context, update tableView as needed
- */
-- (void) noButtonActionForMessage: (Card*) message {
-    NSLog(@"No button action from delegate\n");
-    UIAlertController* confirmAlert = [UIAlertController alertControllerWithTitle:@"Are you sure you want to remove this card?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    
-    UIAlertAction* yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"alert action yes selected\n");
-        NSLog(@"in message box vc: message null : %d\n", (message == NULL));
-        lastmsgct--;
-        [self.appdelegate deleteCardFromCoreData:message];
-        [self.appdelegate saveContext];
-        
-        //reset fetchedResults and table view data
-        [self fetchModifiedResults];
-        [self.tableView reloadData];
-    }];
-    
-    UIAlertAction* no = [UIAlertAction actionWithTitle:@"No! Take me back!" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"alert action no selected\n");
-        NSLog(@"in message box vc: message null : %d\n", (message == NULL));
-    } ];
-    
-    [confirmAlert addAction:yes];
-    [confirmAlert addAction:no];
-    
-    [self presentViewController:confirmAlert animated:YES completion:nil];
-}
-
--(void) initializeFetchedResultsController {
-    
-    //create request with sort descriptor
-    self.request = [[NSFetchRequest alloc] initWithEntityName:cardEntityName];
-    self.messageTypePred = [NSPredicate predicateWithFormat: @"(cardType == -1) OR (cardType == 2)"];       //predicate based on card being either a card message or an intro message
-    self.sort = [NSSortDescriptor sortDescriptorWithKey: lastNameKey ascending:YES];
-    
-    [self.request setSortDescriptors:@[self.sort]];
-    [self.request setPredicate: self.messageTypePred];
-    
-    //get managed object context from appdelegate
-    self.moc = [self.appdelegate managedObjectContext];
-    
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:self.request managedObjectContext:self.moc sectionNameKeyPath:nil cacheName:nil];
-    [self.fetchedResultsController setDelegate:self];
-    
-    NSError *error = nil;
-    if (![[self fetchedResultsController] performFetch:&error]) {
-        NSLog(@"Failed to initialize FetchedResultsController: %@\n%@", [error localizedDescription], [error userInfo]);
-        abort();
-    }
-}
-
--(void) fetchModifiedResults {
-
-    NSError *error = nil;
-    if (![[self fetchedResultsController] performFetch:&error]) {
-        NSLog(@"Failed to fetch modified FetchedResultsController: %@\n%@", [error localizedDescription], [error userInfo]);
-        abort();
-    }
 }
 
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    //    return 1;
+    return [self.datasource numberOfSectionsInTableView:tableView];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"Setting number of rows to fetched results count : %lu\n\n", self.fetchedResultsController.fetchedObjects.count);
-    return self.fetchedResultsController.fetchedObjects.count;
+    //    return self.fetchedResultsController.fetchedObjects.count;
+    if (self.datasource == NULL) {
+        return 0;
+    }
+    else {
+        return [self.datasource tableView:self.tableView numberOfRowsInSection:section];
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    swipeableMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messageBoxCell" forIndexPath:indexPath];
+    //    swipeableMessageCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"messageBoxCell" forIndexPath:indexPath];
+    //    return [self.datasource tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    //    [self configureCell: cell atIndexPath:indexPath];
+    //    return cell;
     
-    NSLog(@"dequeued cell\n\n");
-
-    [self configureCell:cell atIndexPath:indexPath];
-    
-    NSLog(@"configured cell\n\n");
-
-    return cell;
+    return [self.datasource tableView:self.tableView cellForRowAtIndexPath:indexPath];
 }
 
 
 
-- (void)configureCell: (swipeableMessageCell*) cell atIndexPath:(NSIndexPath*)indexPath
-{
-    NSLog(@"configuring cell\n\n");
-    if (self.fetchedResultsController.fetchedObjects.count == 0) {
-        NSLog(@"No objects were fetched by the fetched results controller\n\n");
-        return;
-    }
-    else if ([indexPath row] >= self.fetchedResultsController.fetchedObjects.count) {
-        NSLog(@"Cell index path exceeds fetched results count; doing nothing\n\n");
-        return;
-    }
-    
-    //get message from fetched results controller
-    Card* message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    
-    NSLog(@"message retrieved\n\n");
-    NSString* title;
-    if ([message.cardType integerValue] == INTRO_MESSAGE) {       //intro message
-        title = @"Welcome to cardMe! Swipe me left to either accept me or reject me!";
-    }
-    else {                                                                  //card message
-        title = [NSString stringWithFormat:@"%@ %@ wants to share their business card with you! Do you want to accept it?", message.firstName, message.lastName];
-    }
-    
-    NSLog(@"title element set\n\n");
-
-    //set cell's and cell's title with name from corresponding managedObject
-    [cell.messageLabel setText:title];
-    [cell.messageLabel setAlpha: 1.0];
-    cell.messageData = message;
-    cell.delegate = self;
-    
-}
-
-
-
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return NO;
-}
-
-
-
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-
+//- (void)configureCell: (swipeableMessageCell*) cell atIndexPath:(NSIndexPath*)indexPath
+//{
+//    //get message from fetched results controller
+//    Card* message = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+//    NSLog(@"%ld. configuring for cell with data : %@", (long)indexPath.row, message.email);
+//    NSString* title;
+//    if ([message.cardType integerValue] == INTRO_MESSAGE) {       //intro message
+//        title = @"Welcome to cardMe!";
+//    }
+//    else {                                                                  //card message
+//        title = [NSString stringWithFormat:@"%@ %@ wants to share their business card with you! Do you want to accept it?", message.firstName, message.lastName];
+//    }
+//
+//    //NSLog(@"title element set\n\n");
+//
+//    //set cell's and cell's title with name from corresponding managedObject
+//    [cell.messageLabel setText:title];
+//    [cell.messageLabel setAlpha: 1.0];
+//    cell.messageData = message;
+//    cell.delegate = self;
+//}
+//
 
 /*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
+ 1)
+ 
+ */
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
+//swipeable message cell protocol methods
+//- (void) yesButtonActionForMessage: (Card*) message{
+//    if (self.appdelegate == NULL) {
+//        self.appdelegate = [[UIApplication sharedApplication] delegate];
+//    }
+//    NSLog(@"Yes button action from delegate\n");
+//    lastmsgct--;
+//    NSString* alertMessage;
+//
+//    if ([message.cardType integerValue] == MESSAGE_CARD) {
+//        [self.privateMoc performBlockAndWait:^{
+//            message.cardType = [NSNumber numberWithInt:BUSINESS_CARD];
+//            [self.privateMoc save:nil];
+//        }];
+//    }
+//    else {
+//        [self.privateMoc performBlockAndWait:^{
+//            [self.privateMoc deleteObject: message];
+//            [self.privateMoc save:nil];
+//        }];
+//    }
+//
+////        [message observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+////            if ([snapshot.value[msgTypeKey] integerValue] == MESSAGE_CARD) {      //add card
+////                Card* newCard = [NSEntityDescription insertNewObjectForEntityForName:cardEntityName inManagedObjectContext:self.moc];
+////                newCard.cardType = [NSNumber numberWithInt: BUSINESS_CARD];
+////                newCard.firstName = snapshot.value[firstNameKey];
+////                newCard.lastName = snapshot.value[lastNameKey];
+////                newCard.company = snapshot.value[companyKey];
+////                newCard.position = snapshot.value[positionKey];
+////
+////                [self.appdelegate saveContext];
+////                self.msgct.text = [NSString stringWithFormat:@"%ld", ([self.msgct.text integerValue] - 1)];
+////                alertMessage = @"Card was successfully added to your collection!";
+////            }
+////            [message removeValue];
+////        }
+////    ];
+//    UIAlertController* confirmAlert = [UIAlertController alertControllerWithTitle:@"Success!" message:alertMessage preferredStyle:UIAlertControllerStyleActionSheet];
+//
+//    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+//    [confirmAlert addAction:ok];
+//
+//    [self presentViewController:confirmAlert animated:YES completion:nil];
+//
+//    //reset fetchedResults and table view data
+//    [self fetchModifiedResults];
+//    [self.tableView reloadData];
+//}
+//
+///*1) alert confirming that person wants to remove element
+// 2) if no, return
+// 3) if yes, remove managedObject from context, update tableView as needed
+// */
+//- (void) noButtonActionForMessage: (Card*) message {
+//    if (self.appdelegate == NULL) {
+//        self.appdelegate = [[UIApplication sharedApplication] delegate];
+//    }
+//    NSLog(@"No button action from delegate\n");
+//    UIAlertController* confirmAlert = [UIAlertController alertControllerWithTitle:@"Are you sure you want to remove this card?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+//
+//    UIAlertAction* yes = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"alert action yes selected\n");
+//        NSLog(@"in message box vc: message null : %d\n", (message == NULL));
+//        lastmsgct--;
+//        self.msgct.text = [NSString stringWithFormat:@"%ld", ([self.msgct.text integerValue] - 1)];
+//
+//        [self.privateMoc performBlockAndWait:^{
+//            [self.privateMoc deleteObject: message];
+//            [self.privateMoc save:nil];
+//        }];
+//
+//        //reset fetchedResults and table view data
+//        [self fetchModifiedResults];
+//        [self.tableView reloadData];
+//    }];
+//
+//    UIAlertAction* no = [UIAlertAction actionWithTitle:@"No! Take me back!" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"alert action no selected\n");
+//        NSLog(@"in message box vc: message null : %d\n", (message == NULL));
+//    } ];
+//
+//    [confirmAlert addAction:yes];
+//    [confirmAlert addAction:no];
+//
+//    [self presentViewController:confirmAlert animated:YES completion:nil];
+//}
+//
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+////populates message box with messages from firebase
+//- (BOOL) readInMessagesFromFirebase {
+//    NSLog(@"Reading in messages from firebase\n");
+//
+//    //get reference to user's message box on firebase
+//    NSString* myMessageBoxName = [[NSString alloc] initWithFormat:@"messages/%@", self.appdelegate.myCard.userID];
+//    NSLog(@"message box name: %@\n", myMessageBoxName);
+//    Firebase* myMessageBoxRef = [[self.appdelegate getFirebaseRootRef] childByAppendingPath:myMessageBoxName];
+//    NSLog(@"message box ref address: %@\n", myMessageBoxRef.description);
+//
+//
+//    //create managed object context reference
+//    NSManagedObjectContext *context = [self.appdelegate managedObjectContext];
+//
+//    //read messages from firebase to managed object - possibly change this to a handle later
+//    [myMessageBoxRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+//        NSLog(@"snapshot key: %@, snapshot value for last : %@, snapshot value for first : %@",snapshot.key, snapshot.value[lastNameKey], snapshot.value[firstNameKey]);
+//
+//        if (snapshot.value == [NSNull null]) {
+//            NSLog(@"An error occured reading snapshot values from Firebase");
+//            return;
+//        }
+//        else if ([snapshot.value[msgTypeKey] integerValue] == INTRO_MESSAGE) {           //welcome message
+//            NSLog(@"Adding intro welcome message\n\n");
+//            Card *newMessage = [NSEntityDescription insertNewObjectForEntityForName:cardEntityName inManagedObjectContext:context];
+//            newMessage.sharedWith = self.appdelegate.myCard.userID;
+//            newMessage.lastName = snapshot.value[lastNameKey];
+//            newMessage.firstName = @"";
+//            newMessage.cardType = [NSNumber numberWithInt: INTRO_MESSAGE];
+//
+//        }
+//        else if ([snapshot.value[msgTypeKey] integerValue] == MESSAGE_CARD){
+//            NSLog(@"ADDING REGULAR CARD MESSAGE for user : %@\n\n", snapshot.value[emailKey]);
+//            //card-carrying messages
+//            Card *newMessage = [NSEntityDescription insertNewObjectForEntityForName:cardEntityName inManagedObjectContext:context];
+//            newMessage.sharedWith = snapshot.value[sharedWithKey];
+//            newMessage.company = snapshot.value[companyKey];
+//            newMessage.email = snapshot.value[emailKey];
+//            newMessage.firstName = snapshot.value[firstNameKey];
+//            newMessage.lastName = snapshot.value[lastNameKey];
+//            newMessage.position = snapshot.value[positionKey];
+//            newMessage.templateID = snapshot.value[templateIDKey];
+//            newMessage.userID = snapshot.value[userIDKey];
+//            newMessage.version = snapshot.value[versionKey];
+//            newMessage.cardType = [NSNumber numberWithInt: MESSAGE_CARD];
+//
+//        }
+//        [context save:nil];
+//    }];
+//
+//    //save context DOES THIS NEED TO BE IN BLOCK?????
+//
+//    //delete messages from firebase
+//    [myMessageBoxRef removeAllObservers];
+//    [myMessageBoxRef removeValue];
+//
+//    [self initializeFetchedResultsController];
+//    [self.tableView reloadData];
+//    return true;
+//}
+
+//-(void) initializeFetchedResultsController {
+//    self.fetchedResultsController = NULL;
+//    //create request with sort descriptor
+//    NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:cardEntityName];
+//    NSPredicate* messageTypePred = [NSPredicate predicateWithFormat: @"((cardType == -1) OR (cardType == 2))"];       //predicate based on card being either a card message or an intro message
+//    NSPredicate* pred2 = [NSPredicate predicateWithFormat:@"sharedWith == %@", self.appdelegate.myCard.userID];
+//    NSCompoundPredicate* comppred = [NSCompoundPredicate andPredicateWithSubpredicates:@[messageTypePred, pred2]];
+//    NSSortDescriptor* sort = [NSSortDescriptor sortDescriptorWithKey: lastNameKey ascending:YES];
+//
+//    [request setSortDescriptors:@[sort]];
+//    [request setPredicate: comppred];
+//
+//    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.privateMoc sectionNameKeyPath:nil cacheName:nil];
+//    [self.fetchedResultsController setDelegate:self];
+//
+//    NSError *error = nil;
+//    if (![[self fetchedResultsController] performFetch:&error]) {
+//        NSLog(@"Failed to initialize FetchedResultsController: %@\n%@", [error localizedDescription], [error userInfo]);
+//        abort();
+//    }
+//}
+//
+//-(void) fetchModifiedResults {
+//    NSError *error = nil;
+//    if (![[self fetchedResultsController] performFetch:&error]) {
+//        NSLog(@"Failed to fetch modified FetchedResultsController: %@\n%@", [error localizedDescription], [error userInfo]);
+//        abort();
+//    }
+//}
+//
+
 
 @end

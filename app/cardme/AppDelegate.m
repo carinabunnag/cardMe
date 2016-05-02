@@ -22,6 +22,9 @@ static NSString* positionKey = @"position";
 static NSString* templateIDKey = @"templateID";
 static NSString* userIDKey = @"userID";
 static NSString* versionKey = @"version";
+static NSString* cardImageKey = @"cardImage";
+static NSString* sharedWithKey = @"sharedWith";
+
 static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 
 @interface AppDelegate ()
@@ -102,13 +105,9 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 
 
 - (NSNumber*) retrieveCardCt {
-    if (self.cardct != NULL) {
-        return self.cardct;
-    }
-    
     NSManagedObjectContext* moc = [self managedObjectContext];
     NSFetchRequest* requestToCt = [[NSFetchRequest alloc] initWithEntityName:cardEntityName];
-    NSPredicate* predCt = [NSPredicate predicateWithFormat:@"cardType == %d", BUSINESS_CARD];
+    NSPredicate* predCt = [NSPredicate predicateWithFormat:@"cardType == %d AND sharedWith == %@", BUSINESS_CARD, self.myCard.userID];
     [requestToCt setPredicate:predCt];
     
     NSError *error = nil;
@@ -120,11 +119,6 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
     return self.cardct;
 }
 
-- (void) deleteCardFromCoreData : (Card*) message {
-    NSLog(@"in app delegate: message null : %d\n", (message == NULL));
-    NSManagedObjectContext* moc = [self managedObjectContext];
-    [moc deleteObject:message];
-}
 
 - (void) deleteAllCardsFromCoreData {
     NSLog(@"Deleting all cards from core data\n");
@@ -145,72 +139,9 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 
 - (void) signOut {
     [self.firebaseRootRef unauth];
-    
+    [self.firebaseRootRef removeAllObservers];
 }
 
-
-
-//populates message box with messages from firebase
-- (BOOL) readInMessagesFromFirebase {
-    NSLog(@"Reading in messages from firebase\n");
-    
-    //get reference to user's message box on firebase
-    NSString* myMessageBoxName = [[NSString alloc] initWithFormat:@"messages/%@", self.myCard.userID];
-    Firebase* myMessageBoxRef = [self.getFirebaseRootRef childByAppendingPath:myMessageBoxName];
-    
-    //create managed object context reference
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    
-    //read messages from firebase to managed object -- possibly change this to a handle later
-    [myMessageBoxRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
-        NSLog(@"in appdelegate: snapshot key: %@, snapshot value for last : %@, snapshot value for first : %@",snapshot.key, snapshot.value[lastNameKey], snapshot.value[firstNameKey]);
-        
-        if (snapshot.value == [NSNull null]) {
-            NSLog(@"An error occured reading snapshot values from Firebase");
-            return;
-        }
-        else if ([snapshot.value[msgTypeKey] integerValue] == INTRO_MESSAGE) {           //welcome message
-            NSLog(@"Adding intro welcome message\n\n");
-            Card *newMessage = [NSEntityDescription insertNewObjectForEntityForName:cardEntityName inManagedObjectContext:context];
-            newMessage.lastName = snapshot.value[lastNameKey];
-            newMessage.firstName = @"";
-            newMessage.cardType = [NSNumber numberWithInt: INTRO_MESSAGE];
-            
-            [snapshot.ref onDisconnectRemoveValue];
-        }
-        else if ([snapshot.value[msgTypeKey] integerValue] == MESSAGE_CARD){
-            
-            //card-carrying messages
-            Card *newMessage = [NSEntityDescription insertNewObjectForEntityForName:cardEntityName inManagedObjectContext:context];
-            NSLog(@"Adding card message\n\n");
-            newMessage.company = snapshot.value[companyKey];
-            newMessage.email = snapshot.value[emailKey];
-            newMessage.firstName = snapshot.value[firstNameKey];
-            newMessage.lastName = snapshot.value[lastNameKey];
-            newMessage.position = snapshot.value[positionKey];
-            newMessage.templateID = snapshot.value[templateIDKey];
-            newMessage.userID = snapshot.value[userIDKey];
-            newMessage.version = snapshot.value[versionKey];
-            newMessage.cardType = [NSNumber numberWithInt: MESSAGE_CARD];
-        }
-        
-
-    }];
-    //save context DOES THIS NEED TO BE IN BLOCK?????
-    NSError* err;
-    if (([context save: &err]) != YES) {
-        NSLog(@"there was an error saving the context\n\n");
-    }
-    
-    //delete messages from firebase
-    [myMessageBoxRef observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
-        NSLog(@"Removing messages from firebase\n\n");
-        [snapshot.ref onDisconnectRemoveValue];
-    }];
-    
-    return true;
-}
 
 - (void) readMyCardFromCoreData {
     NSManagedObjectContext* moc = [self managedObjectContext];
@@ -296,6 +227,7 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
     //create new message in dictionary form
     NSDictionary *shareMessage = @ {
         msgTypeKey: [NSNumber numberWithInt: MESSAGE_CARD],             //signify that it is a message
+        sharedWithKey: userID,
         companyKey : businessCard.company,
         emailKey : businessCard.email,
         firstNameKey : businessCard.firstName,

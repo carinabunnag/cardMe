@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-
+#import "TemplateController.h"
 @interface HomeViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *username;
@@ -19,6 +19,7 @@
 @property (weak, nonatomic) AppDelegate* appdelegate;
 @property (weak, nonatomic) Card* myCard;
 
+@property (nonatomic) NSString *encryption;
 
 - (IBAction)signout:(id)sender;
 
