@@ -415,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1006" y="-800"/>
+            <point key="canvasLocation" x="1009" y="-976"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="PqA-r8-vrE">
@@ -1594,7 +1594,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="backgroundTap:" destination="sPC-D1-T9j" eventType="editingDidEnd" id="kQQ-Ib-ouy"/>
                                     <action selector="emailInput:" destination="sPC-D1-T9j" eventType="editingDidEnd" id="5qF-0h-oZM"/>
                                 </connections>
                             </textField>
@@ -1605,6 +1604,7 @@
                                 </state>
                                 <connections>
                                     <action selector="whenSubmitted:" destination="sPC-D1-T9j" eventType="touchUpInside" id="sgD-Ki-8gN"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="kMT-XO-feW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1619,7 +1619,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1582" y="-2645"/>
+            <point key="canvasLocation" x="1680" y="-2466"/>
         </scene>
         <!--Templates-->
         <scene sceneID="0sD-do-P3X">
@@ -1724,25 +1724,37 @@
                                 <rect key="frame" x="20" y="97" width="329" height="203"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a7E-CO-0Wp">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a7E-CO-0Wp">
                                 <rect key="frame" x="92" y="127" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="companyInput:" destination="IsK-PU-EJS" eventType="editingDidEnd" id="P1Y-5S-WWV"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zry-3X-XRy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zry-3X-XRy">
                                 <rect key="frame" x="92" y="165" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameInput:" destination="IsK-PU-EJS" eventType="editingDidEnd" id="b3A-bN-C9c"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WrI-xA-wnz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WrI-xA-wnz">
                                 <rect key="frame" x="92" y="203" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="phoneInput:" destination="IsK-PU-EJS" eventType="editingDidEnd" id="OiH-0u-WX8"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YsM-is-VWx">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YsM-is-VWx">
                                 <rect key="frame" x="92" y="241" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailInput:" destination="IsK-PU-EJS" eventType="editingDidEnd" id="mX4-mf-F94"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AC7-tP-jnl">
                                 <rect key="frame" x="113" y="314" width="49" height="30"/>
@@ -1751,6 +1763,7 @@
                                 </state>
                                 <connections>
                                     <action selector="whenSubmitted:" destination="sPC-D1-T9j" eventType="touchUpInside" id="LdN-Ty-QyB"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="vEB-cv-Q8w"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1764,7 +1777,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2076" y="-1749"/>
+            <point key="canvasLocation" x="1948" y="-1785"/>
         </scene>
         <!--Template Controller-->
         <scene sceneID="Cx6-GK-YJS">
@@ -1783,25 +1796,37 @@
                                 <rect key="frame" x="20" y="97" width="329" height="203"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qhl-WQ-NaV">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qhl-WQ-NaV">
                                 <rect key="frame" x="92" y="127" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="companyInput:" destination="xCj-3j-Hk2" eventType="editingDidEnd" id="qWq-GH-ipS"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uBH-kq-Kfd">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uBH-kq-Kfd">
                                 <rect key="frame" x="92" y="165" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameInput:" destination="xCj-3j-Hk2" eventType="editingDidEnd" id="DGf-nN-zwE"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vL-jj-kqZ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8vL-jj-kqZ">
                                 <rect key="frame" x="92" y="203" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="phoneInput:" destination="xCj-3j-Hk2" eventType="editingDidEnd" id="NOz-bH-Qea"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jdu-NA-BSi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jdu-NA-BSi">
                                 <rect key="frame" x="92" y="241" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailInput:" destination="xCj-3j-Hk2" eventType="editingDidEnd" id="Wgf-Vx-ovN"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzO-hD-P0k">
                                 <rect key="frame" x="131" y="323" width="49" height="30"/>
@@ -1810,6 +1835,7 @@
                                 </state>
                                 <connections>
                                     <action selector="whenSubmitted:" destination="sPC-D1-T9j" eventType="touchUpInside" id="yNT-rb-6re"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="if7-Gv-Vwl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1823,7 +1849,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2476" y="-1013"/>
+            <point key="canvasLocation" x="2398" y="-1040"/>
         </scene>
         <!--Template Controller-->
         <scene sceneID="mhp-tA-I8G">
@@ -1842,25 +1868,37 @@
                                 <rect key="frame" x="20" y="97" width="329" height="203"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Cr-5w-JX3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Cr-5w-JX3">
                                 <rect key="frame" x="92" y="127" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="companyInput:" destination="jrA-iN-0eh" eventType="editingDidEnd" id="c2o-8H-qvu"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gSp-7o-ag4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gSp-7o-ag4">
                                 <rect key="frame" x="92" y="165" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="nameInput:" destination="jrA-iN-0eh" eventType="editingDidEnd" id="VWy-YM-yNr"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vld-Cs-gJa">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vld-Cs-gJa">
                                 <rect key="frame" x="92" y="203" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="phoneInput:" destination="jrA-iN-0eh" eventType="editingDidEnd" id="jMi-EY-mW3"/>
+                                </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UmA-Wy-dVP">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UmA-Wy-dVP">
                                 <rect key="frame" x="92" y="241" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailInput:" destination="jrA-iN-0eh" eventType="editingDidEnd" id="7hB-gk-kgr"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3k-iD-C6t">
                                 <rect key="frame" x="129" y="316" width="49" height="30"/>
@@ -1869,6 +1907,7 @@
                                 </state>
                                 <connections>
                                     <action selector="whenSubmitted:" destination="sPC-D1-T9j" eventType="touchUpInside" id="XCz-dz-1WK"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="7t8-x3-dXN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1882,7 +1921,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2744" y="-1749"/>
+            <point key="canvasLocation" x="2616" y="-1785"/>
         </scene>
         <!--Template Controller-->
         <scene sceneID="abU-0f-xLh">
@@ -1901,7 +1940,7 @@
                                 <rect key="frame" x="20" y="97" width="329" height="203"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JuE-rY-egn">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JuE-rY-egn">
                                 <rect key="frame" x="92" y="127" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1909,7 +1948,7 @@
                                     <action selector="companyInput:" destination="GLf-Xr-QIo" eventType="editingDidEnd" id="OgR-OY-cNC"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qtz-Ss-Mtx">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qtz-Ss-Mtx">
                                 <rect key="frame" x="92" y="165" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1917,7 +1956,7 @@
                                     <action selector="nameInput:" destination="GLf-Xr-QIo" eventType="editingDidEnd" id="Sjf-Or-FfS"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Idw-Lx-opz">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Idw-Lx-opz">
                                 <rect key="frame" x="92" y="203" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1925,12 +1964,11 @@
                                     <action selector="phoneInput:" destination="GLf-Xr-QIo" eventType="editingDidEnd" id="hTK-9X-NSq"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRV-He-E53">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRV-He-E53">
                                 <rect key="frame" x="92" y="241" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="backgroundTap:" destination="GLf-Xr-QIo" eventType="editingDidEnd" id="MJN-z0-PFJ"/>
                                     <action selector="emailInput:" destination="GLf-Xr-QIo" eventType="editingDidEnd" id="QKr-fh-cjh"/>
                                     <action selector="textFieldDoneEditing:" destination="GLf-Xr-QIo" eventType="editingDidEnd" id="z02-fv-dlM"/>
                                 </connections>
@@ -1942,6 +1980,7 @@
                                 </state>
                                 <connections>
                                     <action selector="whenSubmitted:" destination="sPC-D1-T9j" eventType="touchUpInside" id="X7C-GK-wY0"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="cPT-ap-dP7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1955,7 +1994,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1200" y="-1807"/>
+            <point key="canvasLocation" x="1138" y="-1815"/>
         </scene>
     </scenes>
     <resources>
@@ -1969,5 +2008,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="79O-9s-mqA"/>
+        <segue reference="if7-Gv-Vwl"/>
     </inferredMetricsTieBreakers>
 </document>

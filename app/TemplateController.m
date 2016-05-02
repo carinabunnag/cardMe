@@ -7,6 +7,7 @@
 //
 
 #import "TemplateController.h"
+#import "HomeViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface TemplateController()
