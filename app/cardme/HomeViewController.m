@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "TemplateController.h"
 
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
@@ -32,6 +33,20 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    
+    NSLog(@"encryption: %@", encryption);
+    
+//    NSData *data = [[NSData alloc]initWithBase64EncodedString:encryption options:NSDataBase64DecodingIgnoreUnknownCharacters];
+//    UIImage *card = [UIImage imageWithData:data];
+//    
+//    
+//    UIImageView *imageview = [[UIImageView alloc]init];
+//    imageview.image =card;
+//    
+//    //Can change dimension of image
+//    imageview.frame = CGRectMake(50, 50, 150, 150);
+//    
+//    [self.view addSubview:imageview];
     
 }
 /*
