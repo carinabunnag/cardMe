@@ -65,8 +65,9 @@
         }
         else {
             if (self.appdelegate.myCard == NULL || self.appdelegate.myCard.email != username_given) {
-                NSLog(@"Reading in my card via login screen");
+                NSLog(@"Reading in my card via login screen, for username : %@", username_given);
                 [self.appdelegate readMyCardFromCoreDataWithUsername: username_given];
+                NSLog(@"card name: %@\n", self.appdelegate.myCard.email);
             }
             [self.appdelegate readInMessagesFromFirebase];
             //segue

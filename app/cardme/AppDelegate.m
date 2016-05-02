@@ -47,7 +47,8 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 
 - (NSString*) getToday {
     if (self.today == NULL) {
-        self.today = [[NSDate date] description];
+        NSDateComponents *components = [[NSCalendar currentCalendar] components: NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate: [NSDate date]];
+        self.today = [NSString stringWithFormat: @"%ld/%ld/%ld", (long)[components day], (long)[components month], (long)[components year]];
     }
     return self.today;
 }
@@ -140,6 +141,13 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
         NSLog(@"Batch delete completed!");
     }
 }
+
+
+- (void) signOut {
+    [self.firebaseRootRef unauth];
+    
+}
+
 
 
 //populates message box with messages from firebase
@@ -237,10 +245,12 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 - (void) readMyCardFromCoreDataWithUsername: (NSString*) username {
     NSManagedObjectContext* moc = [self managedObjectContext];
     NSFetchRequest* myCardRequest = [NSFetchRequest fetchRequestWithEntityName:cardEntityName];
-    NSPredicate* myCardPredicate = [NSPredicate predicateWithFormat: @"cardType == %d", MY_CARD];
-    NSPredicate* myUsernamePredicate = [NSPredicate predicateWithFormat:@"email == %@", username];
-    NSCompoundPredicate* compoundPredicate = [[NSCompoundPredicate alloc] initWithType: NSAndPredicateType subpredicates: @[myCardPredicate, myUsernamePredicate]];
-    [myCardRequest setPredicate: compoundPredicate];
+    NSPredicate* myCardPredicate = [NSPredicate predicateWithFormat: @"cardType == %d AND email == %@", MY_CARD, username];
+//    NSPredicate* myUsernamePredicate = [NSPredicate predicateWithFormat:@"email == %@", username];
+//    NSCompoundPredicate* compoundPredicate = [[NSCompoundPredicate alloc] initWithType: NSAndPredicateType subpredicates: @[myCardPredicate, myUsernamePredicate]];
+//    [myCardRequest setPredicate: compoundPredicate];
+    [myCardRequest setPredicate: myCardPredicate];
+
     
     NSError *error = nil;
     NSArray *myCardResults = [moc executeFetchRequest:myCardRequest error:&error];

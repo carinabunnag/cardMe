@@ -46,7 +46,6 @@
 
 - (NSNumber*) retrieveCardCt;
 - (NSString*) getToday;
-- (Card*) getMyCard;
 
 @end
 

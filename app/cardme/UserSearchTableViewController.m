@@ -53,6 +53,9 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
     
     self.appdelegate = [[UIApplication sharedApplication] delegate];
     self.searchBar.delegate = self;
+    self.username.text = appdelegate.myCard.email;
+    self.today.text = [appdelegate getToday];
+
 }
 
 - (IBAction)signout:(id)sender {
@@ -107,7 +110,7 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
     // self.datasource = [[FirebaseTableViewDataSource alloc] initWithQuery:self.firebaseSearchQuery nibNamed: @"" cellReuseIdentifier:@"searchCellReuse" view:self.tableView];
     
     [self.datasource populateCellWithBlock:^(searchResultsTableCell* cell, FDataSnapshot* snapshot) {
-        if (snapshot.key != appdelegate.myCard.userID) {
+//        if (snapshot.key != appdelegate.myCard.userID) {
             UILabel *label = (UILabel*)[cell.contentView viewWithTag:100];
             [label setText: snapshot.value[emailKey]];
             
@@ -122,7 +125,7 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
             [cell.shared setAlpha: 0.0];
             [cell.shared setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.0]];
             NSLog(@"cell user id : %@, snapshot key: %@\n\n", cell.userID, snapshot.key);
-        }
+//        }
     }];
     [self.tableView setDataSource:self.datasource];
     
