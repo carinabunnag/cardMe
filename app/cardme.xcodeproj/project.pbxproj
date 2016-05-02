@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310D7BD91CD6D3DD00D612E3 /* Card+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 310D7BD61CD6D3DD00D612E3 /* Card+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		310D7BDA1CD6D3DD00D612E3 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 310D7BD81CD6D3DD00D612E3 /* Card.m */; settings = {ASSET_TAGS = (); }; };
 		31342B831CD118F100A907EE /* MessageBoxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31342B821CD118F100A907EE /* MessageBoxViewController.m */; settings = {ASSET_TAGS = (); }; };
 		31342B891CD1288B00A907EE /* swipeableMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31342B881CD1288B00A907EE /* swipeableMessageCell.m */; settings = {ASSET_TAGS = (); }; };
 		313A27C51CCEAE4000E3EB90 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313A27C41CCEAE4000E3EB90 /* SignupViewController.m */; settings = {ASSET_TAGS = (); }; };
-		316D06C11CD2585B00CD47A6 /* Card+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06BE1CD2585B00CD47A6 /* Card+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		316D06C21CD2585B00CD47A6 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06C01CD2585B00CD47A6 /* Card.m */; settings = {ASSET_TAGS = (); }; };
 		316D06C61CD2973100CD47A6 /* BusinessCardTableViewMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06C51CD2973100CD47A6 /* BusinessCardTableViewMaster.m */; settings = {ASSET_TAGS = (); }; };
 		316D06CF1CD31B7900CD47A6 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06CE1CD31B7900CD47A6 /* SettingsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		316D06D21CD3302400CD47A6 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 316D06D11CD3302400CD47A6 /* HomeViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -30,16 +30,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		310D7BD41CD6D2D900D612E3 /* cardme 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "cardme 3.xcdatamodel"; sourceTree = "<group>"; };
+		310D7BD51CD6D3DD00D612E3 /* Card+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Card+CoreDataProperties.h"; sourceTree = "<group>"; };
+		310D7BD61CD6D3DD00D612E3 /* Card+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Card+CoreDataProperties.m"; sourceTree = "<group>"; };
+		310D7BD71CD6D3DD00D612E3 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		310D7BD81CD6D3DD00D612E3 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		31342B811CD118F100A907EE /* MessageBoxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBoxViewController.h; sourceTree = "<group>"; };
 		31342B821CD118F100A907EE /* MessageBoxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBoxViewController.m; sourceTree = "<group>"; };
 		31342B871CD1288B00A907EE /* swipeableMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swipeableMessageCell.h; sourceTree = "<group>"; };
 		31342B881CD1288B00A907EE /* swipeableMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = swipeableMessageCell.m; sourceTree = "<group>"; };
 		313A27C31CCEAE4000E3EB90 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		313A27C41CCEAE4000E3EB90 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
-		316D06BD1CD2585B00CD47A6 /* Card+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Card+CoreDataProperties.h"; sourceTree = "<group>"; };
-		316D06BE1CD2585B00CD47A6 /* Card+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Card+CoreDataProperties.m"; sourceTree = "<group>"; };
-		316D06BF1CD2585B00CD47A6 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
-		316D06C01CD2585B00CD47A6 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
 		316D06C31CD25DD400CD47A6 /* cardme2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = cardme2.xcdatamodel; sourceTree = "<group>"; };
 		316D06C41CD2973100CD47A6 /* BusinessCardTableViewMaster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessCardTableViewMaster.h; sourceTree = "<group>"; };
 		316D06C51CD2973100CD47A6 /* BusinessCardTableViewMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessCardTableViewMaster.m; sourceTree = "<group>"; };
@@ -147,10 +148,10 @@
 				313A27C41CCEAE4000E3EB90 /* SignupViewController.m */,
 				D6C258991CBFF30E00D4A58E /* Info.plist */,
 				3180B7E81CC8188800641910 /* cardme.xcdatamodeld */,
-				316D06BD1CD2585B00CD47A6 /* Card+CoreDataProperties.h */,
-				316D06BE1CD2585B00CD47A6 /* Card+CoreDataProperties.m */,
-				316D06BF1CD2585B00CD47A6 /* Card.h */,
-				316D06C01CD2585B00CD47A6 /* Card.m */,
+				310D7BD51CD6D3DD00D612E3 /* Card+CoreDataProperties.h */,
+				310D7BD61CD6D3DD00D612E3 /* Card+CoreDataProperties.m */,
+				310D7BD71CD6D3DD00D612E3 /* Card.h */,
+				310D7BD81CD6D3DD00D612E3 /* Card.m */,
 				D6C258881CBFF30E00D4A58E /* Supporting Files */,
 			);
 			path = cardme;
@@ -292,8 +293,9 @@
 				D6C258901CBFF30E00D4A58E /* LoginViewController.m in Sources */,
 				31FF3C4A1CCFE5850044E6E0 /* searchResultsTableCell.m in Sources */,
 				D6C2588D1CBFF30E00D4A58E /* AppDelegate.m in Sources */,
-				316D06C11CD2585B00CD47A6 /* Card+CoreDataProperties.m in Sources */,
 				316D06C61CD2973100CD47A6 /* BusinessCardTableViewMaster.m in Sources */,
+				310D7BDA1CD6D3DD00D612E3 /* Card.m in Sources */,
+				310D7BD91CD6D3DD00D612E3 /* Card+CoreDataProperties.m in Sources */,
 				31FF3C441CCFCB050044E6E0 /* UserSearchTableViewController.m in Sources */,
 				D6C2588A1CBFF30E00D4A58E /* main.m in Sources */,
 				316D06D21CD3302400CD47A6 /* HomeViewController.m in Sources */,
@@ -302,7 +304,6 @@
 				313A27C51CCEAE4000E3EB90 /* SignupViewController.m in Sources */,
 				31FF3C4D1CCFE8EF0044E6E0 /* businessCardTableViewCell.m in Sources */,
 				31342B831CD118F100A907EE /* MessageBoxViewController.m in Sources */,
-				316D06C21CD2585B00CD47A6 /* Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,10 +460,11 @@
 		3180B7E81CC8188800641910 /* cardme.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				310D7BD41CD6D2D900D612E3 /* cardme 3.xcdatamodel */,
 				316D06C31CD25DD400CD47A6 /* cardme2.xcdatamodel */,
 				3180B7E91CC8188800641910 /* cardme.xcdatamodel */,
 			);
-			currentVersion = 316D06C31CD25DD400CD47A6 /* cardme2.xcdatamodel */;
+			currentVersion = 310D7BD41CD6D2D900D612E3 /* cardme 3.xcdatamodel */;
 			path = cardme.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -32,6 +32,8 @@
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
+    self.cardct.text = [NSString stringWithFormat:@"%@", [self.appdelegate retrieveCardCt]];
+
     
 }
 /*

@@ -16,6 +16,8 @@
 static NSString* cardEntityName = @"Card";
 static NSString* msgTypeKey = @"cardType";   //plain messages have key -1, card carrying messages have key 1
 static NSString* companyKey = @"company";
+static NSString* sharedWithKey = @"sharedWith";
+static NSString* cardImageKey = @"cardImage";
 static NSString* emailKey = @"email";
 static NSString* firstNameKey = @"firstName";
 static NSString* lastNameKey = @"lastName";
@@ -24,6 +26,7 @@ static NSString* templateIDKey = @"templateID";
 static NSString* userIDKey = @"userID";
 static NSString* versionKey = @"version";
 static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
+
 
 @interface UserSearchTableViewController ()
 
@@ -110,7 +113,8 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
     // self.datasource = [[FirebaseTableViewDataSource alloc] initWithQuery:self.firebaseSearchQuery nibNamed: @"" cellReuseIdentifier:@"searchCellReuse" view:self.tableView];
     
     [self.datasource populateCellWithBlock:^(searchResultsTableCell* cell, FDataSnapshot* snapshot) {
-//        if (snapshot.key != appdelegate.myCard.userID) {
+//        NSLog(@"snapshot key: %@ == user id: %@ : %d\n", snapshot.key, appdelegate.myCard.userID, ([snapshot.key isEqualToString: appdelegate.myCard.userID]));
+//        if (![snapshot.key isEqualToString: appdelegate.myCard.userID) {
             UILabel *label = (UILabel*)[cell.contentView viewWithTag:100];
             [label setText: snapshot.value[emailKey]];
             
@@ -133,35 +137,35 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
     return true;
 }
 
-- (void) setupQueryResultsArray {
-    
-    NSLog(@"Setup query results array beginning");
-    self.datasource = [[FirebaseTableViewDataSource alloc] initWithQuery:self.firebaseSearchQuery prototypeReuseIdentifier:@"searchCellReuse" view:self.tableView];
-    
-   // self.datasource = [[FirebaseTableViewDataSource alloc] initWithQuery:self.firebaseSearchQuery nibNamed: @"" cellReuseIdentifier:@"searchCellReuse" view:self.tableView];
-    
-    [self.datasource populateCellWithBlock:^(searchResultsTableCell* cell, FDataSnapshot* snapshot) {
-        if (snapshot.key != appdelegate.myCard.userID) {
-            UILabel *label = (UILabel*)[cell.contentView viewWithTag:100];
-            [label setText: snapshot.value[emailKey]];
-        
-            label = (UILabel*)[cell.contentView viewWithTag:200];
-            [label setText: snapshot.value[lastNameKey]];
-
-            label = (UILabel*)[cell.contentView viewWithTag:300];
-            [label setText: snapshot.value[firstNameKey]];
-        
-            cell.userID = snapshot.key;
-        
-            [cell.shared setAlpha: 0.0];
-            [cell.shared setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.0]];
-            NSLog(@"cell user id : %@, snapshot key: %@\n\n", cell.userID, snapshot.key);
-        }
-    }];
-    [self.tableView setDataSource:self.datasource];
-    
-    NSLog(@"Setup query results array ending");
-}
+//- (void) setupQueryResultsArray {
+//    
+//    NSLog(@"Setup query results array beginning");
+//    self.datasource = [[FirebaseTableViewDataSource alloc] initWithQuery:self.firebaseSearchQuery prototypeReuseIdentifier:@"searchCellReuse" view:self.tableView];
+//    
+//   // self.datasource = [[FirebaseTableViewDataSource alloc] initWithQuery:self.firebaseSearchQuery nibNamed: @"" cellReuseIdentifier:@"searchCellReuse" view:self.tableView];
+//    
+//    [self.datasource populateCellWithBlock:^(searchResultsTableCell* cell, FDataSnapshot* snapshot) {
+//        if (snapshot.key != appdelegate.myCard.userID) {
+//            UILabel *label = (UILabel*)[cell.contentView viewWithTag:100];
+//            [label setText: snapshot.value[emailKey]];
+//        
+//            label = (UILabel*)[cell.contentView viewWithTag:200];
+//            [label setText: snapshot.value[lastNameKey]];
+//
+//            label = (UILabel*)[cell.contentView viewWithTag:300];
+//            [label setText: snapshot.value[firstNameKey]];
+//        
+//            cell.userID = snapshot.key;
+//        
+//            [cell.shared setAlpha: 0.0];
+//            [cell.shared setBackgroundColor:[UIColor colorWithWhite:0.0 alpha:0.0]];
+//            NSLog(@"cell user id : %@, snapshot key: %@\n\n", cell.userID, snapshot.key);
+//        }
+//    }];
+//    [self.tableView setDataSource:self.datasource];
+//    
+//    NSLog(@"Setup query results array ending");
+//}
 
 
 #pragma mark - Search Controller stuff
@@ -176,11 +180,11 @@ static NSString* firebaseAppURL = @"https://cardmebusinesscard.firebaseio.com/";
 
 
 
-
-- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
-{
-//    [self updateSearchResultsForSearchController:self.searchController];
-}
+//
+//- (void)searchBar:(UISearchBar *)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
+//{
+////    [self updateSearchResultsForSearchController:self.searchController];
+//}
 
 #pragma mark - Table view data source
 
